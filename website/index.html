@@ -5,72 +5,91 @@
   <title>Bumble & Yarn</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <ul class="menu">
-      <li><a href="#">Home</a></li>
+  <!-- NAV BAR -->
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#">Home</a></li>
 
-      <li class="dropdown">
-        <a href="#">Shop ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Coasters</a></li>
-          <li><a href="#">Custom Orders</a></li>
-        </ul>
-      </li>
+        <li class="dropdown">
+          <a href="#">Shop ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Coasters</a></li>
+            <li><a href="#">Patterns</a></li>
+          </ul>
+        </li>
 
-      <li class="dropdown">
-        <a href="#">About ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Our Story</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+        <li class="dropdown">
+          <a href="#">About ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Header -->
-  <h1>Welcome to Bumble & Yarn</h1>
-  <p class="subtitle">Handmade crochet and yarn creations.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Welcome to Bumble & Yarn</h1>
+    <p>Handmade crochet and yarn creations.</p>
+  </section>
 
-  <!-- Product Gallery -->
+  <!-- FILTERS -->
+  <div class="filters">
+    <select>
+      <option>Filter by Price</option>
+      <option>Under $10</option>
+      <option>$10 – $20</option>
+      <option>$20+</option>
+    </select>
+
+    <select>
+      <option>Filter by Color</option>
+      <option>Blue</option>
+      <option>Pink</option>
+      <option>Green</option>
+      <option>Neutral</option>
+    </select>
+  </div>
+
+  <!-- PRODUCTS -->
   <div class="gallery">
 
-    <div class="card">
-      <img src="Bumble And Yarn.jpg" alt="Bumble & Yarn logo">
-      <h3>Bumble & Yarn</h3>
-      <p class="price">Handmade crochet goods</p>
+    <div class="card logo-card">
+      <img src="Bumble And Yarn.jpg" alt="Bumble & Yarn Logo">
+      <h2>Bumble & Yarn</h2>
+      <p>Handmade crochet goods</p>
     </div>
 
     <div class="card">
-      <img src="cactus coaster.jpg" alt="Cactus coaster">
+      <img src="cactus coaster.jpg" alt="Cactus Coaster">
       <h3>Cactus Coaster</h3>
-      <p class="price">$8</p>
+      <p>$8</p>
     </div>
 
     <div class="card">
-      <img src="flower petal coaster.jpg" alt="Flower petal coaster">
+      <img src="flower petal coaster.jpg" alt="Flower Petal Coaster">
       <h3>Flower Petal Coaster</h3>
-      <p class="price">$8</p>
+      <p>$8</p>
     </div>
 
     <div class="card">
-      <img src="flurry coaster.jpg" alt="Flurry coaster">
+      <img src="flurry coaster.jpg" alt="Flurry Coaster">
       <h3>Flurry Coaster</h3>
-      <p class="price">$8</p>
+      <p>$8</p>
     </div>
 
     <div class="card">
-      <img src="helm coaster.jpg" alt="Helm coaster">
+      <img src="helm coaster.jpg" alt="Helm Coaster">
       <h3>Helm Coaster</h3>
-      <p class="price">$8</p>
+      <p>$8</p>
     </div>
 
   </div>
 
 </body>
 </html>
-
-
