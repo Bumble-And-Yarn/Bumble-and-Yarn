@@ -5,108 +5,39 @@
   <title>Bumble & Yarn</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-logo">
-      <img src="Bumble And Yarn.jpg" alt="Bumble & Yarn Logo">
+<header class="navbar">
+  <div class="logo-area">
+    <img src="Bumble And Yarn.jpg" alt="Bumble and Yarn Logo">
+    <h1>Bumble & Yarn</h1>
+  </div>
+
+  <nav>
+    <div class="dropdown">
+      <button class="dropbtn">Shop ▾</button>
+      <div class="dropdown-content">
+        <a href="products.html">Coasters</a>
+      </div>
     </div>
-
-    <ul class="nav-menu">
-      <li><a href="#">Home</a></li>
-
-      <li class="dropdown">
-        <a href="#">Shop ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="#coasters">Coasters</a></li>
-        </ul>
-      </li>
-
-      <li class="dropdown">
-        <a href="#">About ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Our Story</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </li>
-    </ul>
+    <a href="#about">About</a>
   </nav>
+</header>
 
-  <!-- HERO -->
-  <header class="hero">
-    <h1>Welcome to Bumble & Yarn</h1>
-    <p>Handmade crochet and yarn creations.</p>
-  </header>
+<section class="welcome">
+  <h2>Welcome to Bumble & Yarn</h2>
+  <p>
+    Bumble and Yarn is a crafty pair of mother and son with love for everything
+    knitted and crocheted. :)
+  </p>
+</section>
 
-  <!-- COASTERS SECTION -->
-  <section id="coasters" class="products">
-
-    <div class="product-card">
-      <img src="cactus coaster.jpg" alt="Cactus Coaster">
-      <h3>Cactus Coaster</h3>
-      <div class="selectors">
-        <select>
-          <option>Select Color</option>
-          <option>Green</option>
-          <option>Pink</option>
-        </select>
-        <select>
-          <option>Select Price</option>
-          <option>$8</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <img src="flower petal coaster.jpg" alt="Flower Petal Coaster">
-      <h3>Flower Petal Coaster</h3>
-      <div class="selectors">
-        <select>
-          <option>Select Color</option>
-          <option>Pink</option>
-          <option>Rainbow</option>
-        </select>
-        <select>
-          <option>Select Price</option>
-          <option>$8</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <img src="flurry coaster.jpg" alt="Flurry Coaster">
-      <h3>Flurry Coaster</h3>
-      <div class="selectors">
-        <select>
-          <option>Select Color</option>
-          <option>Gray</option>
-          <option>Rust</option>
-        </select>
-        <select>
-          <option>Select Price</option>
-          <option>$8</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <img src="helm coaster.jpg" alt="Helm Coaster">
-      <h3>Helm Coaster</h3>
-      <div class="selectors">
-        <select>
-          <option>Select Color</option>
-          <option>Blue</option>
-        </select>
-        <select>
-          <option>Select Price</option>
-          <option>$8</option>
-        </select>
-      </div>
-    </div>
-
-  </section>
+<section id="about" class="welcome">
+  <h2>About Us</h2>
+  <p>
+    Handmade crochet pieces created with care, creativity, and lots of yarn.
+  </p>
+</section>
 
 </body>
 </html>
