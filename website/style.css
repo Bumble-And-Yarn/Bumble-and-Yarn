@@ -5,20 +5,21 @@
 
 body {
   margin: 0;
-  background: #f6f9d7;
-  color: #4a3b00;
+  background-color: #f4f8d0;
+  color: #4a3b1a;
 }
 
 /* HEADER */
 .header {
-  background: #eef3b0;
   text-align: center;
   padding: 20px;
+  background-color: #eef4b3;
 }
 
 .logo {
-  width: 80px;
-  border-radius: 12px;
+  width: 90px;
+  display: block;
+  margin: 0 auto 10px;
 }
 
 .nav {
@@ -29,11 +30,12 @@ body {
 .dropbtn {
   margin: 0 10px;
   text-decoration: none;
-  color: #4a3b00;
+  color: #4a3b1a;
   font-weight: bold;
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 16px;
 }
 
 /* DROPDOWN */
@@ -45,18 +47,22 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background: white;
-  border-radius: 10px;
+  background-color: white;
   min-width: 120px;
+  border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  z-index: 10;
+  z-index: 100;
 }
 
 .dropdown-content a {
   display: block;
   padding: 10px;
+  color: #4a3b1a;
   text-decoration: none;
-  color: #4a3b00;
+}
+
+.dropdown-content a:hover {
+  background-color: #f4f8d0;
 }
 
 .dropdown:hover .dropdown-content {
@@ -78,30 +84,33 @@ body {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .product {
   background: white;
+  padding: 20px;
   border-radius: 20px;
-  padding: 15px;
-  width: 220px;
+  width: 230px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .product img {
   width: 100%;
+  height: 150px;
+  object-fit: cover;
   border-radius: 15px;
 }
 
-/* DROPLISTS */
+/* DROPDOWNS INSIDE PRODUCTS */
 .controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
   margin-top: 10px;
 }
 
 select {
   padding: 6px;
-  margin: 5px;
   border-radius: 10px;
-  border: 1px solid #ccc;
 }
