@@ -7,42 +7,111 @@
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="logo-area">
+  <!-- HEADER -->
+  <header class="header">
     <img src="logo.jpg" alt="Bumble & Yarn Logo" class="logo">
     <h1>Bumble & Yarn</h1>
-  </div>
 
-  <nav class="nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
+    <nav class="nav">
+      <a href="#home">Home</a>
 
-      <li class="dropdown">
-        <a href="#">Shop ▾</a>
-        <ul class="dropdown-menu">
-          <li><a href="products.html">Coasters</a></li>
-        </ul>
-      </li>
+      <div class="dropdown">
+        <button class="dropbtn">Shop ▾</button>
+        <div class="dropdown-content">
+          <a href="#coasters">Coasters</a>
+        </div>
+      </div>
 
-      <li><a href="#about">About</a></li>
-    </ul>
-  </nav>
-</header>
+      <a href="#about">About</a>
+    </nav>
+  </header>
 
-<!-- HOME -->
-<section class="section">
-  <h2>Welcome to Bumble & Yarn</h2>
-  <p>Handmade crochet items made with love.</p>
-</section>
+  <!-- HOME -->
+  <section id="home" class="section center">
+    <h2>Welcome to Bumble & Yarn</h2>
+    <p>Handmade crochet items made with love.</p>
+  </section>
 
-<!-- ABOUT -->
-<section id="about" class="section">
-  <h2>About Us</h2>
-  <p>
-    Bumble & Yarn is a mother and son crochet duo creating handmade items with care.
-  </p>
-</section>
+  <!-- COASTERS -->
+  <section id="coasters" class="section">
+    <h2 class="center">Matching Coasters</h2>
+
+    <div class="products">
+
+      <!-- CACTUS -->
+      <div class="product">
+        <img src="cactus coaster.jpg" alt="Cactus Coaster">
+        <h3>Cactus Coaster</h3>
+        <div class="controls">
+          <select>
+            <option>Select Color</option>
+            <option>Green</option>
+            <option>Brown</option>
+          </select>
+          <select>
+            <option>$8</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- FLOWER -->
+      <div class="product">
+        <img src="flower petal coaster.jpg" alt="Flower Petal Coaster">
+        <h3>Flower Petal Coaster</h3>
+        <div class="controls">
+          <select>
+            <option>Select Color</option>
+            <option>Pink</option>
+            <option>Yellow</option>
+          </select>
+          <select>
+            <option>$8</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- FLURRY -->
+      <div class="product">
+        <img src="flurry coaster.jpg" alt="Flurry Coaster">
+        <h3>Flurry Coaster</h3>
+        <div class="controls">
+          <select>
+            <option>Select Color</option>
+            <option>Grey</option>
+            <option>Blue</option>
+          </select>
+          <select>
+            <option>$8</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- HELM -->
+      <div class="product">
+        <img src="helm coaster.jpg" alt="Helm Coaster">
+        <h3>Helm Coaster</h3>
+        <div class="controls">
+          <select>
+            <option>Select Color</option>
+            <option>Blue</option>
+            <option>White</option>
+          </select>
+          <select>
+            <option>$8</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section center">
+    <h2>About Us</h2>
+    <p>
+      Bumble & Yarn is a mother and son crochet duo creating handmade items with care.
+    </p>
+  </section>
 
 </body>
 </html>
