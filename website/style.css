@@ -1,15 +1,22 @@
-/* General */
+/* =========================
+   GLOBAL STYLES
+========================= */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #fffaf0;
+  font-family: Arial, sans-serif;
+  background-color: #fffbea;
   color: #333;
 }
 
-/* Navigation */
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
-  background-color: #fff3d6;
+  background: #fff6d5;
   padding: 15px 30px;
 }
 
@@ -17,33 +24,37 @@ body {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
   margin: 0;
   padding: 0;
 }
 
 .menu li {
-  position: relative;
+  position: relative; /* REQUIRED for dropdowns */
 }
 
 .menu a {
   text-decoration: none;
-  font-weight: bold;
   color: #7a4a2e;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
-/* Dropdown */
+/* =========================
+   DROPDOWNS
+========================= */
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 30px;
+  top: 100%;
   left: 0;
-  background-color: white;
+  background: white;
   list-style: none;
   padding: 10px 0;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
   min-width: 160px;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
 }
 
 .dropdown-menu li {
@@ -51,19 +62,31 @@ body {
 }
 
 .dropdown-menu li a {
-  color: #333;
+  color: #7a4a2e;
   font-weight: normal;
 }
 
+/* SHOW dropdown on hover */
 .dropdown:hover .dropdown-menu {
   display: block;
 }
 
-/* Header */
+/* Hover effects */
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.dropdown-menu li:hover {
+  background: #fff0c2;
+}
+
+/* =========================
+   HEADER TEXT
+========================= */
 h1 {
   text-align: center;
-  margin-top: 30px;
   color: #7a4a2e;
+  margin-top: 40px;
 }
 
 .subtitle {
@@ -71,34 +94,40 @@ h1 {
   margin-bottom: 40px;
 }
 
-/* Gallery */
+/* =========================
+   PRODUCT GALLERY
+========================= */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
+  gap: 30px;
   padding: 0 40px 60px;
 }
 
-/* Product Cards */
+/* =========================
+   PRODUCT CARDS
+========================= */
 .card {
-  background-color: white;
+  background: white;
   border-radius: 16px;
-  padding: 15px;
+  padding: 20px;
   text-align: center;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
 .card img {
   width: 100%;
+  height: auto;
   border-radius: 12px;
 }
 
 .card h3 {
-  margin: 12px 0 5px;
+  margin: 15px 0 5px;
   color: #7a4a2e;
 }
 
 .price {
   font-weight: bold;
+  margin-top: 5px;
 }
 
