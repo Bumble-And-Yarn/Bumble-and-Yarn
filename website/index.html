@@ -1,45 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Bumble & Yarn</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="header">
-  <img src="logo.jpg" alt="Bumble & Yarn Logo" class="logo">
-
-  <div class="header-text">
+<header>
+  <div class="logo">
+    <img src="logo.jpg">
     <h1>Bumble & Yarn</h1>
-    <p class="welcome-text">Welcome to Bumble & Yarn</p>
-    <p class="tagline">Handmade crochet coasters made with love.</p>
   </div>
-
-  <nav class="nav">
+  <nav>
     <a href="index.html">Home</a>
     <a href="products.html">Shop</a>
     <a href="#">About</a>
   </nav>
 </header>
 
-<main class="home-content">
-  <h2>About Us</h2>
-  <p>
-    Bumble & Yarn is a crafty pair of mother and son with a love for everything
-    knitted and crocheted.
-  </p>
-</main>
+<div class="home-center">
+  <h2>Welcome to Bumble & Yarn</h2>
+  <p>Handmade crochet coasters made with love.</p>
+</div>
 
-<!-- FLOATING BASKET -->
-<a href="basket.html" class="basket-float" title="View Basket">
-  🛒
-  <span id="basket-count">0</span>
-</a>
+<div class="basket" onclick="location.href='basket.html'">
+  🛒 <span id="count">0</span>
+</div>
 
 <script>
-  const basket = JSON.parse(localStorage.getItem("basket")) || [];
-  document.getElementById("basket-count").textContent = basket.length;
+const basket = JSON.parse(localStorage.getItem("basket")) || [];
+document.getElementById("count").innerText = basket.length;
 </script>
 
 </body>
