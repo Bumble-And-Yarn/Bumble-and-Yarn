@@ -1,38 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Your Basket</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="header">
-  <h1>Your Basket</h1>
-  <a href="products.html">← Back to shop</a>
+<header>
+  <div class="logo">
+    <img src="logo.jpg">
+    <h1>Your Basket</h1>
+  </div>
 </header>
 
-<main class="home-content">
-  <ul id="basket-items"></ul>
-  <h3 id="total"></h3>
-</main>
+<div style="padding:40px">
+  <h2>Items in basket:</h2>
+  <p id="items"></p>
+</div>
 
 <script>
-  const basket = JSON.parse(localStorage.getItem("basket")) || [];
-  const list = document.getElementById("basket-items");
-  let total = 0;
-
-  basket.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = `${item.name} - ${item.price}`;
-    list.appendChild(li);
-
-    const price = parseFloat(item.price.replace("£",""));
-    total += price;
-  });
-
-  document.getElementById("total").textContent =
-    "Total: £" + total.toFixed(2);
+const basket = JSON.parse(localStorage.getItem("basket")) || [];
+document.getElementById("items").innerText =
+  basket.length === 0 ? "Basket is empty." : `You have ${basket.length} items.`;
 </script>
 
 </body>
