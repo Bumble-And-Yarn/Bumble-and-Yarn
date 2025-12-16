@@ -1,145 +1,137 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
 * {
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
 body {
   margin: 0;
-  background-color: #f4f8d0;
-  color: #4a3b1a;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f6fbd1;
+  color: #4a4a2a;
 }
 
-/* HEADER */
-.header {
-  background-color: #eef4b3;
-  padding: 15px 20px;
+/* =========================
+   HEADER / NAV
+========================= */
+header {
+  background-color: #eaf5a8;
+  padding: 15px 25px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
 }
 
-.header-left {
+.logo-area {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
-.logo {
-  width: 45px;
-}
-
-.brand {
-  font-weight: bold;
-}
-
-/* NAV */
-.nav a,
-.dropbtn {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #4a3b1a;
-  background: none;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background: white;
+.logo-area img {
+  height: 40px;
   border-radius: 10px;
-  min-width: 140px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  z-index: 10;
 }
 
-.dropdown-content a {
-  display: block;
-  padding: 10px 15px;
+nav a {
+  margin-left: 20px;
   text-decoration: none;
-  color: #4a3b1a;
+  color: #4a4a2a;
+  font-weight: bold;
 }
 
-.dropdown-content a:hover {
-  background-color: #f4f8d0;
+nav a:hover {
+  text-decoration: underline;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+/* =========================
+   PAGE SECTIONS
+========================= */
+main {
+  padding: 40px 20px;
 }
 
-/* MAIN */
-.section {
-  padding: 30px 20px;
-}
-
-.center {
+h1,
+h2,
+h3 {
   text-align: center;
 }
 
-.subtitle {
-  max-width: 600px;
-  margin: 10px auto 30px;
+/* =========================
+   PRODUCTS GRID
+========================= */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1100px;
+  margin: 40px auto;
 }
 
-/* PRODUCTS */
-.products {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.product {
-  background: white;
-  border-radius: 20px;
-  padding: 15px;
-  width: 260px;
+/* =========================
+   PRODUCT CARD
+========================= */
+.product-card {
+  background-color: #ffffff;
+  border-radius: 28px;
+  padding: 22px;
   text-align: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
-.product img {
+.product-card img {
   width: 100%;
-  height: 160px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 22px;
+  margin-bottom: 15px;
 }
 
-.product h3 {
+.product-card h3 {
   margin: 10px 0 5px;
 }
 
-.desc {
+.product-card p {
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-/* CONTROLS */
-select {
-  width: 100%;
-  padding: 8px;
-  margin: 6px 0;
-  border-radius: 12px;
-}
-
-button {
-  margin-top: 10px;
+/* =========================
+   DROPDOWNS
+========================= */
+.product-card select {
   width: 100%;
   padding: 10px;
-  background-color: #c8da6f;
+  margin-top: 10px;
+  border-radius: 16px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.product-card button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px;
   border: none;
-  border-radius: 15px;
+  border-radius: 22px;
+  background-color: #c7e265;
   font-weight: bold;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #b7c95f;
+.product-card button:hover {
+  background-color: #b6d84f;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
 }
