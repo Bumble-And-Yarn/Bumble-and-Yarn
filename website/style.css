@@ -9,6 +9,10 @@ main {
   padding: 40px;
 }
 
+h1 {
+  margin-bottom: 30px;
+}
+
 /* ===== HEADER ===== */
 .header {
   display: flex;
@@ -28,15 +32,16 @@ main {
   height: 40px;
 }
 
+/* ===== NAV ===== */
 nav a,
 .dropbtn {
   margin-left: 20px;
+  text-decoration: none;
   background: none;
   border: none;
   cursor: pointer;
-  text-decoration: none;
-  color: #333;
   font-size: 14px;
+  color: black;
 }
 
 /* ===== DROPDOWN ===== */
@@ -49,64 +54,91 @@ nav a,
   display: none;
   position: absolute;
   background: white;
-  border-radius: 10px;
   min-width: 140px;
-  padding: 10px;
+  border-radius: 10px;
+  padding: 8px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 10;
 }
 
 .dropdown-content a {
   display: block;
-  padding: 8px;
+  padding: 8px 15px;
+  color: black;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background: #f0f0f0;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* ===== HOME ===== */
-.home {
+/* ===== HOME PAGE TEXT ===== */
+.home-content {
   text-align: center;
-  max-width: 700px;
-  margin: auto;
+  margin-top: 60px;
 }
 
-/* ===== PRODUCTS ===== */
-.page-title {
-  text-align: center;
-  margin-bottom: 40px;
+.home-content h1 {
+  margin-bottom: 10px;
 }
 
+.home-content p {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ===== PRODUCTS PAGE ===== */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  margin-top: 40px;
 }
 
 .product-card {
   background: white;
-  border-radius: 25px;
+  border-radius: 20px;
   padding: 20px;
   text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
 
 .product-card img {
   width: 100%;
-  border-radius: 20px;
+  max-width: 220px;
+  height: auto;
+  border-radius: 16px;
   margin-bottom: 15px;
 }
 
-.product-card select,
-.product-card button {
+.product-card h3 {
+  margin: 10px 0 5px;
+}
+
+.product-card p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.product-card select {
   width: 100%;
-  margin-top: 10px;
-  padding: 8px;
-  border-radius: 20px;
+  padding: 6px;
+  margin-bottom: 10px;
+  border-radius: 8px;
 }
 
 .product-card button {
-  background: #b6e11d;
+  background: #b7e000;
   border: none;
+  padding: 8px;
+  width: 100%;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 /* ===== RESPONSIVE ===== */
