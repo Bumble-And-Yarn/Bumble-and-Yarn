@@ -1,21 +1,17 @@
-/* ===== RESET ===== */
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
 }
 
-/* ===== BODY ===== */
 body {
-  background: #f7f7f7;
-  color: #333;
+  margin: 0;
+  background: #ecffb6;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .header {
   background: white;
-  padding: 15px 25px;
+  padding: 20px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -23,129 +19,39 @@ body {
 }
 
 .logo {
-  width: 60px;
-  border-radius: 15px;
+  height: 60px;
 }
 
-.header h1 {
-  font-size: 26px;
+.header-text {
+  flex-grow: 1;
 }
 
-/* ===== NAV ===== */
-.nav {
-  margin-left: auto;
-  display: flex;
-  gap: 20px;
-  align-items: center;
+.header-text h1 {
+  margin: 0;
+}
+
+.welcome-text {
+  margin: 4px 0;
+}
+
+.tagline {
+  font-size: 14px;
+  color: #555;
 }
 
 .nav a {
+  margin-left: 15px;
   text-decoration: none;
   color: black;
   font-weight: bold;
 }
 
-/* ===== DROPDOWN MENU ===== */
-.dropdown {
-  position: relative;
-}
-
-.dropbtn {
-  background: none;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background: white;
-  min-width: 150px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  overflow: hidden;
-  z-index: 1000;
-}
-
-.dropdown-content a {
-  padding: 12px;
-  display: block;
-  text-decoration: none;
-  color: black;
-}
-
-.dropdown-content a:hover {
-  background: #f0f0f0;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* ===== PRODUCTS PAGE ===== */
-.products {
+/* HOME CONTENT */
+.home-content {
   padding: 40px;
 }
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.product {
-  background: white;
-  padding: 20px;
-  border-radius: 25px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.product img {
-  width: 100%;
-  max-height: 220px;
-  object-fit: cover;
-  border-radius: 20px;
-  margin-bottom: 15px;
-}
-
-.product h3 {
-  margin-bottom: 10px;
-}
-
-.product p {
-  font-size: 14px;
-  margin-bottom: 12px;
-}
-
-/* ===== DROPDOWNS ===== */
-.product select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 15px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-/* ===== ADD TO BASKET BUTTON ===== */
-.add-btn {
-  width: 100%;
-  padding: 12px;
-  background: #b7e800;
-  border: none;
-  border-radius: 20px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.add-btn:hover {
-  opacity: 0.9;
-}
-
-/* ===== FLOATING BASKET ===== */
+/* FLOATING BASKET */
 .basket-float {
   position: fixed;
   bottom: 20px;
@@ -162,54 +68,21 @@ body {
   box-shadow: 0 6px 15px rgba(0,0,0,0.25);
   text-decoration: none;
   color: black;
-  z-index: 9999;
+
+  z-index: 999999;
 }
 
-.basket-float:hover {
-  transform: scale(1.05);
-}
-
-.basket-count {
+#basket-count {
   position: absolute;
   top: -6px;
   right: -6px;
   background: red;
   color: white;
+  font-size: 12px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/* ===== BASKET PAGE ===== */
-.basket-page {
-  max-width: 700px;
-  margin: 40px auto;
-  text-align: center;
-}
-
-.basket-box {
-  background: white;
-  border-radius: 25px;
-  padding: 30px;
-  margin: 20px 0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
-
-.basket-note {
-  color: #666;
-}
-
-.continue-btn {
-  display: inline-block;
-  margin-top: 20px;
-  text-decoration: none;
-  background: #b7e800;
-  padding: 12px 25px;
-  border-radius: 30px;
-  color: black;
-  font-weight: bold;
 }
