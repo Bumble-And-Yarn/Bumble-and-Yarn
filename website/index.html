@@ -1,35 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>Bumble & Yarn</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <div class="logo">
-    <img src="logo.jpg">
-    <h1>Bumble & Yarn</h1>
-  </div>
+  <div class="logo">Bumble & Yarn</div>
   <nav>
     <a href="index.html">Home</a>
-    <a href="products.html">Shop</a>
+    <a href="shop.html">Shop</a>
     <a href="#">About</a>
   </nav>
 </header>
 
-<div class="home-center">
-  <h2>Welcome to Bumble & Yarn</h2>
+<main class="home">
+  <h1>Welcome to Bumble & Yarn</h1>
   <p>Handmade crochet coasters made with love.</p>
-</div>
+</main>
 
-<div class="basket" onclick="location.href='basket.html'">
-  🛒 <span id="count">0</span>
-</div>
+<a href="basket.html" class="basket-icon">
+  🛒 <span id="basket-count">0</span>
+</a>
 
-<script>
-const basket = JSON.parse(localStorage.getItem("basket")) || [];
-document.getElementById("count").innerText = basket.length;
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
