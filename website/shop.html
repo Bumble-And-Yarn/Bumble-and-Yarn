@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shop – Bumble & Yarn</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<header>
+  <div class="logo">Bumble & Yarn</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="#">About</a>
+  </nav>
+</header>
+
+<main class="shop-grid">
+
+  <!-- PRODUCT 1 -->
+  <div class="product">
+    <img src="coaster1.jpg">
+    <h3>Flurry Coaster</h3>
+    <p>A cute simple puff-like coaster.</p>
+
+    <select class="price">
+      <option value="">Select price</option>
+      <option value="8">£8 – Set of 2</option>
+      <option value="16">£16 – Set of 4</option>
+    </select>
+
+    <select class="colour">
+      <option value="">Select colour</option>
+      <option>Blue</option>
+      <option>Pink</option>
+      <option>Cream</option>
+    </select>
+
+    <button onclick="addToBasket('Flurry Coaster')">Add to basket</button>
+  </div>
+
+  <!-- PRODUCT 2 -->
+  <div class="product">
+    <img src="flower.jpg">
+    <h3>Flower Petal Coaster</h3>
+    <p>Special flower petal coasters.</p>
+
+    <select class="price">
+      <option value="">Select price</option>
+      <option value="10">£10 – Set of 2</option>
+      <option value="20">£20 – Set of 4</option>
+    </select>
+
+    <select class="colour">
+      <option value="">Select colour</option>
+      <option>Pink</option>
+      <option>Yellow</option>
+      <option>Purple</option>
+    </select>
+
+    <button onclick="addToBasket('Flower Petal Coaster')">Add to basket</button>
+  </div>
+
+  <!-- PRODUCT 3 – CACTUS (NO COLOURS) -->
+  <div class="product">
+    <img src="cactus.jpg">
+    <h3>The Cactus</h3>
+    <p>Fun cactus coaster set.</p>
+
+    <select class="price">
+      <option value="">Select price</option>
+      <option value="8">£8 – Set of 2 (no pot)</option>
+      <option value="23">£23 – Set of 2 (with pot)</option>
+      <option value="16">£16 – Set of 4 (no pot)</option>
+      <option value="31">£31 – Set of 4 (with pot)</option>
+      <option value="24">£24 – Set of 6 (no pot)</option>
+      <option value="39">£39 – Set of 6 (with pot)</option>
+      <option value="32">£32 – Set of 8 (no pot)</option>
+      <option value="47">£47 – Set of 8 (with pot)</option>
+    </select>
+
+    <button onclick="addToBasket('The Cactus')">Add to basket</button>
+  </div>
+
+</main>
+
+<a href="basket.html" class="basket-icon">
+  🛒 <span id="basket-count">0</span>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
