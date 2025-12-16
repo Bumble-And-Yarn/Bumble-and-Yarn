@@ -1,137 +1,116 @@
-/* =========================
-   GLOBAL STYLES
-========================= */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f6fbd1;
-  color: #4a4a2a;
+  background: #f3f9c9;
+  color: #4a3b00;
 }
 
-/* =========================
-   HEADER / NAV
-========================= */
-header {
-  background-color: #eaf5a8;
-  padding: 15px 25px;
+/* ===== HEADER ===== */
+.header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #e6f59c;
 }
 
-.logo-area {
+.header-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
-.logo-area img {
-  height: 40px;
-  border-radius: 10px;
+.logo {
+  width: 45px;
+  height: auto;
 }
 
-nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #4a4a2a;
+.brand {
+  font-size: 22px;
   font-weight: bold;
 }
 
-nav a:hover {
-  text-decoration: underline;
+/* ===== NAV ===== */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
-/* =========================
-   PAGE SECTIONS
-========================= */
-main {
-  padding: 40px 20px;
+.nav a {
+  text-decoration: none;
+  color: #4a3b00;
+  font-weight: bold;
 }
 
-h1,
-h2,
-h3 {
+/* ===== DROPDOWN ===== */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: #4a3b00;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 25px;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #4a3b00;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background: #eef6b5;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ===== HOME CONTENT ===== */
+.home {
+  max-width: 900px;
+  margin: 80px auto;
   text-align: center;
+  padding: 0 20px;
 }
 
-/* =========================
-   PRODUCTS GRID
-========================= */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 1100px;
-  margin: 40px auto;
-}
-
-/* =========================
-   PRODUCT CARD
-========================= */
-.product-card {
-  background-color: #ffffff;
-  border-radius: 28px;
-  padding: 22px;
-  text-align: center;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-}
-
-.product-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 22px;
+.home h1 {
+  font-size: 32px;
   margin-bottom: 15px;
 }
 
-.product-card h3 {
-  margin: 10px 0 5px;
+.subtitle {
+  font-size: 16px;
+  margin-bottom: 50px;
 }
 
-.product-card p {
-  font-size: 14px;
-  margin-bottom: 12px;
+.about h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-/* =========================
-   DROPDOWNS
-========================= */
-.product-card select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 16px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-.product-card button {
-  width: 100%;
-  margin-top: 14px;
-  padding: 12px;
-  border: none;
-  border-radius: 22px;
-  background-color: #c7e265;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.product-card button:hover {
-  background-color: #b6d84f;
-}
-
-/* =========================
-   MOBILE RESPONSIVE
-========================= */
-@media (max-width: 900px) {
-  .products-grid {
-    grid-template-columns: 1fr;
-  }
+.about p {
+  font-size: 15px;
 }
