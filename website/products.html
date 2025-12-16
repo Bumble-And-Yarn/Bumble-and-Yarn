@@ -6,38 +6,46 @@
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header class="header">
-  <div class="header-left">
-    <img src="logo.jpg" alt="Bumble & Yarn Logo" class="logo">
-    <span class="brand">Bumble & Yarn</span>
-  </div>
-
-  <nav class="nav">
-    <div class="dropdown">
-      <button class="dropbtn">Shop ▾</button>
-      <div class="dropdown-content">
-        <a href="products.html">Coasters</a>
-      </div>
+  <div class="header-inner">
+    <div class="logo-area">
+      <img src="logo.jpg" alt="Bumble & Yarn Logo" class="logo">
+      <h1>Bumble & Yarn</h1>
     </div>
-    <a href="index.html">Home</a>
-  </nav>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <span>Shop ▾</span>
+        <div class="dropdown-content">
+          <a href="products.html">Coasters</a>
+        </div>
+      </div>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
 </header>
 
-<main class="section">
-  <h1 class="center">Matching Coasters and Place Mats</h1>
-  <p class="center subtitle">
+<!-- MAIN -->
+<main class="main">
+
+  <h2 class="page-title">Matching Coasters and Place Mats</h2>
+  <p class="page-subtitle">
     We offer a selection of coasters for which we can provide matching place mats.
   </p>
 
-  <div class="products">
+  <!-- PRODUCTS GRID -->
+  <section class="products-grid">
 
     <!-- FLURRY -->
-    <div class="product">
-      <img src="flurry coaster.jpg" alt="Flurry Coaster">
+    <div class="product-card">
+      <img src="flurry-coaster.jpg" alt="Flurry Coaster">
       <h3>Flurry Coaster</h3>
-      <p class="desc">A cute simple puff-like coaster for your mugs.</p>
+      <p>A cute simple puff-like coaster for your mugs.</p>
 
       <select>
         <option>Select price</option>
@@ -47,18 +55,18 @@
       <select>
         <option>Select colour</option>
         <option>Grey</option>
-        <option>Cream</option>
         <option>Blue</option>
+        <option>Brown</option>
       </select>
 
       <button>Add to basket</button>
     </div>
 
     <!-- FLOWER -->
-    <div class="product">
-      <img src="flower petal coaster.jpg" alt="Flower Petal Coaster">
+    <div class="product-card">
+      <img src="flower-petal-coaster.jpg" alt="Flower Petal Coaster">
       <h3>Flower Petal Coaster</h3>
-      <p class="desc">Special Flower Petal coasters made with love.</p>
+      <p>Special Flower Petal coasters made with love.</p>
 
       <select>
         <option>Select price</option>
@@ -69,17 +77,17 @@
         <option>Select colour</option>
         <option>Pink</option>
         <option>Yellow</option>
-        <option>Rainbow</option>
+        <option>Blue</option>
       </select>
 
       <button>Add to basket</button>
     </div>
 
     <!-- CACTUS -->
-    <div class="product">
-      <img src="cactus coaster.jpg" alt="Cactus Coaster">
+    <div class="product-card">
+      <img src="cactus-coaster.jpg" alt="Cactus Coaster">
       <h3>The Cactus</h3>
-      <p class="desc">A fun cactus coaster set complete with pot.</p>
+      <p>A fun cactus coaster set complete with pot.</p>
 
       <select>
         <option>£23 – Set of 2 (with pot)</option>
@@ -88,11 +96,11 @@
       <button>Add to basket</button>
     </div>
 
-    <!-- HELM (YES, INCLUDED) -->
-    <div class="product">
-      <img src="helm coaster.jpg" alt="Helm Coaster">
+    <!-- HELM -->
+    <div class="product-card">
+      <img src="helm-coaster.jpg" alt="Helm Coaster">
       <h3>Helm Coaster</h3>
-      <p class="desc">Nautical-style crochet coasters inspired by ship helms.</p>
+      <p>Nautical-style crochet coasters inspired by ship helms.</p>
 
       <select>
         <option>Select price</option>
@@ -102,13 +110,14 @@
       <select>
         <option>Select colour</option>
         <option>Blue</option>
-        <option>White</option>
+        <option>Cream</option>
       </select>
 
       <button>Add to basket</button>
     </div>
 
-  </div>
+  </section>
+
 </main>
 
 </body>
