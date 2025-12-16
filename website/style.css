@@ -1,155 +1,133 @@
-/* ===== GLOBAL ===== */
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #eefac4;
+  background: #f8f8f8;
 }
 
-main {
-  padding: 40px;
-}
-
-h1 {
-  margin-bottom: 30px;
-}
-
-/* ===== HEADER ===== */
+/* HEADER */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #e6f88f;
-  padding: 15px 40px;
+  background: white;
+  text-align: center;
+  padding: 20px;
 }
 
-.logo-area {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.logo {
+  width: 90px;
+  border-radius: 20px;
 }
 
-.logo-area img {
-  height: 40px;
+.nav {
+  margin-top: 15px;
 }
 
-/* ===== NAV ===== */
-nav a,
-.dropbtn {
-  margin-left: 20px;
+.nav a {
+  margin: 0 10px;
   text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+/* DROPDOWN */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropbtn {
   background: none;
   border: none;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 14px;
-  color: black;
-}
-
-/* ===== DROPDOWN ===== */
-.dropdown {
-  position: relative;
-  display: inline-block;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background: white;
-  min-width: 140px;
   border-radius: 10px;
-  padding: 8px 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .dropdown-content a {
   display: block;
-  padding: 8px 15px;
-  color: black;
+  padding: 10px;
   text-decoration: none;
-}
-
-.dropdown-content a:hover {
-  background: #f0f0f0;
+  color: black;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* ===== HOME PAGE TEXT ===== */
-.home-content {
+/* HOME */
+.home {
   text-align: center;
-  margin-top: 60px;
+  padding: 60px 20px;
 }
 
-.home-content h1 {
-  margin-bottom: 10px;
+/* PRODUCTS */
+.products {
+  padding: 40px;
 }
 
-.home-content p {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-/* ===== PRODUCTS PAGE ===== */
-.products-grid {
+.product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  margin-top: 40px;
 }
 
-.product-card {
+.product {
   background: white;
-  border-radius: 20px;
   padding: 20px;
+  border-radius: 20px;
   text-align: center;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
 
-.product-card img {
+.product img {
   width: 100%;
-  max-width: 220px;
-  height: auto;
-  border-radius: 16px;
-  margin-bottom: 15px;
+  border-radius: 20px;
 }
 
-.product-card h3 {
-  margin: 10px 0 5px;
-}
-
-.product-card p {
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-
-.product-card select {
+.product select {
   width: 100%;
-  padding: 6px;
-  margin-bottom: 10px;
-  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 12px;
 }
 
-.product-card button {
-  background: #b7e000;
-  border: none;
-  padding: 8px;
-  width: 100%;
-  border-radius: 10px;
+/* FLOATING BASKET */
+.basket-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #b7e800;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
   cursor: pointer;
-  font-weight: bold;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  z-index: 9999;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .products-grid {
-    grid-template-columns: 1fr;
-  }
+.basket-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: red;
+  color: white;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
