@@ -1,169 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Products – Bumble & Yarn</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="header">
-  <img src="logo.jpg" class="logo">
-  <h1>Bumble & Yarn</h1>
-
-  <nav class="nav">
+<header>
+  <div class="logo">
+    <img src="logo.jpg">
+    <h1>Bumble & Yarn</h1>
+  </div>
+  <nav>
     <a href="index.html">Home</a>
-
-    <div class="dropdown">
-      <button class="dropbtn">Shop</button>
-      <div class="dropdown-content">
-        <a href="products.html">Coasters</a>
-      </div>
-    </div>
-
+    <a href="products.html">Shop</a>
     <a href="#">About</a>
   </nav>
 </header>
 
-<main class="products">
-  <div class="product-grid">
+<div class="products">
 
-    <!-- FLURRY COASTER -->
-    <div class="product">
-      <img src="flurry coaster.jpg">
-      <h3>Flurry Coaster</h3>
-      <p>A cute simple Puff-like coaster for you to put your mugs on.</p>
+<!-- FLURRY -->
+<div class="product">
+  <img src="flurry coaster.jpg">
+  <h3>Flurry Coaster</h3>
+  <p>A cute simple puff-like coaster.</p>
 
-      <select>
-        <option selected disabled>Select colour</option>
-        <option>Red</option>
-        <option>Blue</option>
-        <option>White</option>
-        <option>Black</option>
-        <option>Green</option>
-        <option>Orange</option>
-        <option>Purple</option>
-        <option>Pink</option>
-        <option>Yellow</option>
-        <option>Brown</option>
-        <option>Grey</option>
-      </select>
+  <select>
+    <option>Select price</option>
+    <option>£7.20 – Set of 2</option>
+    <option>£14.40 – Set of 4</option>
+    <option>£21.60 – Set of 6</option>
+    <option>£28.80 – Set of 8</option>
+    <option>£36.00 – Set of 10</option>
+    <option>£43.20 – Set of 12</option>
+  </select>
 
-      <select>
-        <option selected disabled>Select price</option>
-        <option>£7.20 – Set of 2</option>
-        <option>£14.40 – Set of 4</option>
-        <option>£21.60 – Set of 6</option>
-        <option>£28.80 – Set of 8</option>
-        <option>£36.00 – Set of 10</option>
-        <option>£43.20 – Set of 12</option>
-      </select>
+  <select>
+    <option>Select colour</option>
+    <option>Red</option><option>Blue</option><option>White</option>
+    <option>Black</option><option>Green</option><option>Orange</option>
+    <option>Purple</option><option>Pink</option><option>Yellow</option>
+    <option>Brown</option><option>Grey</option>
+  </select>
 
-      <button class="add-btn" onclick="addToBasket()">Add to basket</button>
-    </div>
+  <button onclick="add()">Add to basket</button>
+</div>
 
-    <!-- FLOWER PETAL COASTER -->
-    <div class="product">
-      <img src="flower petal coaster.jpg">
-      <h3>Flower Petal Coaster</h3>
-      <p>Special Flower Petal coasters made with love.</p>
+<!-- CACTUS -->
+<div class="product">
+  <img src="cactus coaster.jpg">
+  <h3>The Cactus</h3>
+  <p>Fun cactus coaster set.</p>
 
-      <select>
-        <option selected disabled>Select colour</option>
-        <option>Red</option>
-        <option>Blue</option>
-        <option>White</option>
-        <option>Black</option>
-        <option>Green</option>
-        <option>Orange</option>
-        <option>Purple</option>
-        <option>Pink</option>
-        <option>Yellow</option>
-        <option>Brown</option>
-        <option>Grey</option>
-      </select>
+  <select>
+    <option>Select price</option>
+    <option>£8 – Set of 2 (no pot)</option>
+    <option>£23 – Set of 2 (with pot)</option>
+    <option>£16 – Set of 4 (no pot)</option>
+    <option>£31 – Set of 4 (with pot)</option>
+    <option>£24 – Set of 6 (no pot)</option>
+    <option>£39 – Set of 6 (with pot)</option>
+    <option>£32 – Set of 8 (no pot)</option>
+    <option>£47 – Set of 8 (with pot)</option>
+  </select>
 
-      <select>
-        <option selected disabled>Select price</option>
-        <option>£7.20 – Set of 2</option>
-        <option>£14.40 – Set of 4</option>
-        <option>£21.60 – Set of 6</option>
-        <option>£28.80 – Set of 8</option>
-        <option>£36.00 – Set of 10</option>
-        <option>£43.20 – Set of 12</option>
-      </select>
+  <button onclick="add()">Add to basket</button>
+</div>
 
-      <button class="add-btn" onclick="addToBasket()">Add to basket</button>
-    </div>
+</div>
 
-    <!-- HELM COASTER -->
-    <div class="product">
-      <img src="helm coaster.jpg">
-      <h3>Helm Coaster</h3>
-      <p>This masterpiece is made to represent the Helm of a pirate ship.</p>
-
-      <select>
-        <option selected disabled>Select colour</option>
-        <option>Red</option>
-        <option>Blue</option>
-        <option>White</option>
-        <option>Black</option>
-        <option>Green</option>
-        <option>Orange</option>
-        <option>Purple</option>
-        <option>Pink</option>
-        <option>Yellow</option>
-        <option>Brown</option>
-        <option>Grey</option>
-      </select>
-
-      <select>
-        <option selected disabled>Select price</option>
-        <option>£7.20 – Set of 2</option>
-        <option>£14.40 – Set of 4</option>
-        <option>£21.60 – Set of 6</option>
-        <option>£28.80 – Set of 8</option>
-        <option>£36.00 – Set of 10</option>
-        <option>£43.20 – Set of 12</option>
-      </select>
-
-      <button class="add-btn" onclick="addToBasket()">Add to basket</button>
-    </div>
-
-    <!-- CACTUS -->
-    <div class="product">
-      <img src="cactus coaster.jpg">
-      <h3>The Cactus</h3>
-
-      <select>
-        <option selected disabled>Select price</option>
-        <option>£8 – Set of 2 (without pot)</option>
-        <option>£23 – Set of 2 (with pot)</option>
-        <option>£16 – Set of 4 (without pot)</option>
-        <option>£31 – Set of 4 (with pot)</option>
-        <option>£24 – Set of 6 (without pot)</option>
-        <option>£39 – Set of 6 (with pot)</option>
-        <option>£32 – Set of 8 (without pot)</option>
-        <option>£47 – Set of 8 (with pot)</option>
-      </select>
-
-      <button class="add-btn" onclick="addToBasket()">Add to basket</button>
-    </div>
-
-  </div>
-</main>
-
-<!-- FLOATING BASKET -->
-<div class="basket-float">
-  🛒
-  <span class="basket-count" id="basketCount">0</span>
+<div class="basket" onclick="location.href='basket.html'">
+  🛒 <span id="count">0</span>
 </div>
 
 <script>
-let basketCount = 0;
-function addToBasket() {
-  basketCount++;
-  document.getElementById("basketCount").innerText = basketCount;
+let basket = JSON.parse(localStorage.getItem("basket")) || [];
+document.getElementById("count").innerText = basket.length;
+
+function add(){
+  basket.push("item");
+  localStorage.setItem("basket", JSON.stringify(basket));
+  document.getElementById("count").innerText = basket.length;
 }
 </script>
 
