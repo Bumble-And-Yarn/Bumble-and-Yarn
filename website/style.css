@@ -63,12 +63,6 @@ body {
   display: block;
 }
 
-/* HOME */
-.home {
-  text-align: center;
-  padding: 60px 20px;
-}
-
 /* PRODUCTS */
 .products {
   padding: 40px;
@@ -83,20 +77,36 @@ body {
 .product {
   background: white;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 22px;
   text-align: center;
 }
 
 .product img {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 22px;
 }
 
 .product select {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
-  border-radius: 12px;
+  border-radius: 14px;
+}
+
+/* ADD TO BASKET BUTTON */
+.add-btn {
+  margin-top: 12px;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  background: #b7e800;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #a5d600;
 }
 
 /* FLOATING BASKET */
