@@ -7,120 +7,126 @@
 </head>
 <body>
 
-<!-- HEADER (same structure as index.html) -->
-<header class="header">
-  <div class="logo-area">
-    <img src="logo.jpg" alt="Bumble & Yarn logo">
-    <strong>Bumble & Yarn</strong>
-  </div>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="logo-area">
+      <img src="logo.jpg" alt="Bumble & Yarn Logo">
+      <strong>Bumble & Yarn</strong>
+    </div>
 
-  <nav>
-    <a href="index.html">Home</a>
+    <nav>
+      <a href="index.html">Home</a>
 
-    <div class="dropdown">
-      <button class="dropbtn">Shop ▾</button>
-      <div class="dropdown-content">
-        <a href="products.html">Coasters</a>
+      <div class="dropdown">
+        <button class="dropbtn">Shop ▾</button>
+        <div class="dropdown-content">
+          <a href="products.html">Coasters</a>
+        </div>
       </div>
+
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <!-- ===== PRODUCTS ===== -->
+  <main>
+    <h1>Matching Coasters and Place Mats</h1>
+
+    <div class="products-grid">
+
+      <!-- Flurry Coaster -->
+      <div class="product-card">
+        <img src="flurry coaster.jpg" alt="Flurry Coaster">
+        <h3>Flurry Coaster</h3>
+        <p>A cute puff-like coaster for your mugs.</p>
+
+        <select>
+          <option>Select price</option>
+          <option>£6 – Single</option>
+          <option>£10 – Set of 2</option>
+          <option>£18 – Set of 4</option>
+        </select>
+
+        <select>
+          <option>Select colour</option>
+          <option>Cream</option>
+          <option>Blue</option>
+          <option>Rust</option>
+          <option>Grey</option>
+        </select>
+
+        <button>Add to basket</button>
+      </div>
+
+      <!-- Flower Petal Coaster -->
+      <div class="product-card">
+        <img src="flower petal coaster.jpg" alt="Flower Petal Coaster">
+        <h3>Flower Petal Coaster</h3>
+        <p>Soft flower petal design, handmade with love.</p>
+
+        <select>
+          <option>Select price</option>
+          <option>£7 – Single</option>
+          <option>£12 – Set of 2</option>
+          <option>£22 – Set of 4</option>
+        </select>
+
+        <select>
+          <option>Select colour</option>
+          <option>Pink</option>
+          <option>Yellow</option>
+          <option>White</option>
+          <option>Mixed colours</option>
+        </select>
+
+        <button>Add to basket</button>
+      </div>
+
+      <!-- Cactus Coaster -->
+      <div class="product-card">
+        <img src="cactus coaster.jpg" alt="Cactus Coaster">
+        <h3>The Cactus</h3>
+        <p>A fun cactus coaster set complete with pot.</p>
+
+        <select>
+          <option>£23 – Set of 2 (with pot)</option>
+        </select>
+
+        <select>
+          <option>Select colour</option>
+          <option>Green cactus + brown pot</option>
+          <option>Green cactus + cream pot</option>
+        </select>
+
+        <button>Add to basket</button>
+      </div>
+
+      <!-- Helm Coaster -->
+      <div class="product-card">
+        <img src="helm coaster.jpg" alt="Helm Coaster">
+        <h3>Helm Coaster</h3>
+        <p>Nautical-style crochet coasters inspired by ship helms.</p>
+
+        <select>
+          <option>Select price</option>
+          <option>£8 – Single</option>
+          <option>£14 – Set of 2</option>
+          <option>£26 – Set of 4</option>
+        </select>
+
+        <select>
+          <option>Select colour</option>
+          <option>Navy</option>
+          <option>Light blue</option>
+          <option>White</option>
+          <option>Navy & white</option>
+        </select>
+
+        <button>Add to basket</button>
+      </div>
+
     </div>
-
-    <a href="#">About</a>
-  </nav>
-</header>
-
-<main>
-  <h1>Matching Coasters and Place Mats</h1>
-
-  <section class="products-grid">
-
-    <!-- PRODUCT 1 -->
-    <div class="product-card">
-      <img src="flurry coaster.jpg" alt="Flurry Coaster">
-      <h3>Flurry Coaster</h3>
-      <p>A cute puff-like coaster for your mugs.</p>
-
-      <select>
-        <option>Select price</option>
-        <option>£6 – Single</option>
-        <option>£20 – Set of 4</option>
-      </select>
-
-      <select>
-        <option>Select colour</option>
-        <option>Cream</option>
-        <option>Blue</option>
-        <option>Rust</option>
-      </select>
-
-      <button>Add to basket</button>
-    </div>
-
-    <!-- PRODUCT 2 -->
-    <div class="product-card">
-      <img src="flower petal coaster.jpg" alt="Flower Petal Coaster">
-      <h3>Flower Petal Coaster</h3>
-      <p>Soft flower petal design, handmade with love.</p>
-
-      <select>
-        <option>Select price</option>
-        <option>£7 – Single</option>
-        <option>£24 – Set of 4</option>
-      </select>
-
-      <select>
-        <option>Select colour</option>
-        <option>Pink</option>
-        <option>Yellow</option>
-        <option>White</option>
-      </select>
-
-      <button>Add to basket</button>
-    </div>
-
-    <!-- PRODUCT 3 -->
-    <div class="product-card">
-      <img src="cactus coaster.jpg" alt="Cactus Coaster">
-      <h3>The Cactus</h3>
-      <p>A fun cactus coaster set complete with pot.</p>
-
-      <select>
-        <option>Select price</option>
-        <option>£23 – Set of 2 (with pot)</option>
-      </select>
-
-      <select>
-        <option>Select colour</option>
-        <option>Green</option>
-        <option>Dark Green</option>
-      </select>
-
-      <button>Add to basket</button>
-    </div>
-
-    <!-- PRODUCT 4 -->
-    <div class="product-card">
-      <img src="helm coaster.jpg" alt="Helm Coaster">
-      <h3>Helm Coaster</h3>
-      <p>Nautical-style crochet coasters inspired by ship helms.</p>
-
-      <select>
-        <option>Select price</option>
-        <option>£6 – Single</option>
-        <option>£20 – Set of 4</option>
-      </select>
-
-      <select>
-        <option>Select colour</option>
-        <option>Navy</option>
-        <option>Light Blue</option>
-        <option>White</option>
-      </select>
-
-      <button>Add to basket</button>
-    </div>
-
-  </section>
-</main>
+  </main>
 
 </body>
 </html>
