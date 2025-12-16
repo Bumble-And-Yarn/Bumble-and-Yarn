@@ -9,32 +9,38 @@
 
 <header class="header">
   <img src="logo.jpg" alt="Bumble & Yarn Logo" class="logo">
-  <h1>Bumble & Yarn</h1>
+
+  <div class="header-text">
+    <h1>Bumble & Yarn</h1>
+    <p class="welcome-text">Welcome to Bumble & Yarn</p>
+    <p class="tagline">Handmade crochet coasters made with love.</p>
+  </div>
 
   <nav class="nav">
     <a href="index.html">Home</a>
-
-    <div class="dropdown">
-      <button class="dropbtn">Shop</button>
-      <div class="dropdown-content">
-        <a href="products.html">Coasters</a>
-      </div>
-    </div>
-
+    <a href="products.html">Shop</a>
     <a href="#">About</a>
   </nav>
 </header>
 
-<main class="home">
-  <h2>Welcome to Bumble & Yarn</h2>
-  <p>Handmade crochet coasters made with love.</p>
+<main class="home-content">
+  <h2>About Us</h2>
+  <p>
+    Bumble & Yarn is a crafty pair of mother and son with a love for everything
+    knitted and crocheted.
+  </p>
 </main>
 
-<!-- Floating Basket -->
-<div class="basket-float">
+<!-- FLOATING BASKET -->
+<a href="basket.html" class="basket-float" title="View Basket">
   🛒
-  <span class="basket-count">0</span>
-</div>
+  <span id="basket-count">0</span>
+</a>
+
+<script>
+  const basket = JSON.parse(localStorage.getItem("basket")) || [];
+  document.getElementById("basket-count").textContent = basket.length;
+</script>
 
 </body>
 </html>
