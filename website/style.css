@@ -1,4 +1,3 @@
-
 /* ===== GLOBAL ===== */
 body {
   margin: 0;
@@ -32,10 +31,11 @@ main {
 nav a,
 .dropbtn {
   margin-left: 20px;
-  text-decoration: none;
   background: none;
   border: none;
   cursor: pointer;
+  text-decoration: none;
+  color: #333;
   font-size: 14px;
 }
 
@@ -49,37 +49,37 @@ nav a,
   display: none;
   position: absolute;
   background: white;
-  min-width: 120px;
   border-radius: 10px;
+  min-width: 140px;
+  padding: 10px;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 8px;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.dropdown-content a {
-  display: block;
-  padding: 10px;
-}
-
-/* ===== HOME PAGE ONLY ===== */
-.home-page main {
-  max-width: 800px;
-  margin: 0 auto;
+/* ===== HOME ===== */
+.home {
   text-align: center;
+  max-width: 700px;
+  margin: auto;
 }
 
-/* ===== SHOP PAGE ONLY ===== */
-.shop-page main {
-  max-width: 1200px;
-  margin: 0 auto;
+/* ===== PRODUCTS ===== */
+.page-title {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.product-grid {
+.products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  margin-top: 40px;
 }
 
 .product-card {
@@ -92,13 +92,32 @@ nav a,
 .product-card img {
   width: 100%;
   border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.product-card select,
+.product-card button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 20px;
 }
 
 .product-card button {
-  margin-top: 10px;
-  padding: 10px;
-  background: #b8dd32;
+  background: #b6e11d;
   border: none;
-  border-radius: 20px;
   cursor: pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
 }
