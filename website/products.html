@@ -8,7 +8,7 @@
 <body>
 
 <header class="header">
-  <img src="logo.jpg" alt="Bumble & Yarn Logo" class="logo">
+  <img src="logo.jpg" class="logo">
   <h1>Bumble & Yarn</h1>
 
   <nav class="nav">
@@ -26,10 +26,9 @@
 </header>
 
 <main class="products">
-
   <div class="product-grid">
 
-    <!-- Flurry Coaster -->
+    <!-- FLURRY -->
     <div class="product">
       <img src="flurry coaster.jpg">
       <h3>Flurry Coaster</h3>
@@ -43,12 +42,14 @@
 
       <select>
         <option>Select Price</option>
-        <option>$4 – Single</option>
-        <option>$12 – Set of 4</option>
+        <option>£4 Single</option>
+        <option>£14 Set of 4</option>
       </select>
+
+      <button class="add-btn" onclick="addToBasket()">Add to Basket</button>
     </div>
 
-    <!-- Flower Petal Coaster -->
+    <!-- FLOWER PETAL -->
     <div class="product">
       <img src="flower petal coaster.jpg">
       <h3>Flower Petal Coaster</h3>
@@ -62,12 +63,14 @@
 
       <select>
         <option>Select Price</option>
-        <option>$5 – Single</option>
-        <option>$18 – Set of 4</option>
+        <option>£5 Single</option>
+        <option>£18 Set of 4</option>
       </select>
+
+      <button class="add-btn" onclick="addToBasket()">Add to Basket</button>
     </div>
 
-    <!-- Helm Coaster -->
+    <!-- HELM -->
     <div class="product">
       <img src="helm coaster.jpg">
       <h3>Helm Coaster</h3>
@@ -76,36 +79,55 @@
         <option>Select Color</option>
         <option>Brown</option>
         <option>Cream</option>
-        <option>Gray</option>
+        <option>Grey</option>
       </select>
 
       <select>
         <option>Select Price</option>
-        <option>$6 – Single</option>
-        <option>$20 – Set of 4</option>
+        <option>£6 Single</option>
+        <option>£20 Set of 4</option>
       </select>
+
+      <button class="add-btn" onclick="addToBasket()">Add to Basket</button>
     </div>
 
-    <!-- Cactus Coaster -->
+    <!-- CACTUS -->
     <div class="product">
       <img src="cactus coaster.jpg">
       <h3>Cactus Coaster</h3>
 
       <select>
         <option>Select Price</option>
-        <option>$6 – Single</option>
-        <option>$22 – Set of 4</option>
+        <option>£8 Set of 2 (no pot)</option>
+        <option>£23 Set of 2 (with pot)</option>
+        <option>£16 Set of 4 (no pot)</option>
+        <option>£31 Set of 4 (with pot)</option>
+        <option>£24 Set of 6 (no pot)</option>
+        <option>£39 Set of 6 (with pot)</option>
+        <option>£32 Set of 8 (no pot)</option>
+        <option>£47 Set of 8 (with pot)</option>
       </select>
+
+      <button class="add-btn" onclick="addToBasket()">Add to Basket</button>
     </div>
 
   </div>
 </main>
 
-<!-- Floating Basket -->
+<!-- FLOATING BASKET -->
 <div class="basket-float">
   🛒
-  <span class="basket-count">0</span>
+  <span class="basket-count" id="basketCount">0</span>
 </div>
+
+<script>
+let basketCount = 0;
+
+function addToBasket() {
+  basketCount++;
+  document.getElementById("basketCount").innerText = basketCount;
+}
+</script>
 
 </body>
 </html>
