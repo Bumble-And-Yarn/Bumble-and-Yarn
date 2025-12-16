@@ -2,35 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Basket – Bumble & Yarn</title>
+  <title>Your Basket</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="header">
-  <img src="logo.jpg" class="logo">
-  <h1>Bumble & Yarn</h1>
-
-  <nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="products.html">Shop</a>
-  </nav>
+  <h1>Your Basket</h1>
+  <a href="products.html">← Back to shop</a>
 </header>
 
-<main class="basket-page">
-  <h2>Your Basket</h2>
-
-  <p class="basket-note">
-    Items you add will appear here in a future update.
-  </p>
-
-  <div class="basket-box">
-    <p>🧺 Your basket is currently empty.</p>
-  </div>
-
-  <a href="products.html" class="continue-btn">← Continue Shopping</a>
+<main class="home-content">
+  <ul id="basket-items"></ul>
+  <h3 id="total"></h3>
 </main>
+
+<script>
+  const basket = JSON.parse(localStorage.getItem("basket")) || [];
+  const list = document.getElementById("basket-items");
+  let total = 0;
+
+  basket.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = `${item.name} - ${item.price}`;
+    list.appendChild(li);
+
+    const price = parseFloat(item.price.replace("£",""));
+    total += price;
+  });
+
+  document.getElementById("total").textContent =
+    "Total: £" + total.toFixed(2);
+</script>
 
 </body>
 </html>
-
