@@ -11,54 +11,60 @@ body {
 
 /* HEADER */
 .header {
-  text-align: center;
-  padding: 20px;
   background-color: #eef4b3;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
-  width: 90px;
-  display: block;
-  margin: 0 auto 10px;
+  width: 45px;
 }
 
-.nav {
-  margin-top: 10px;
+.brand {
+  font-weight: bold;
 }
 
+/* NAV */
 .nav a,
 .dropbtn {
-  margin: 0 10px;
+  margin-left: 15px;
   text-decoration: none;
   color: #4a3b1a;
-  font-weight: bold;
   background: none;
   border: none;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 16px;
 }
 
-/* DROPDOWN */
 .dropdown {
-  display: inline-block;
   position: relative;
+  display: inline-block;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: white;
-  min-width: 120px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  z-index: 100;
+  right: 0;
+  background: white;
+  border-radius: 10px;
+  min-width: 140px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 10;
 }
 
 .dropdown-content a {
   display: block;
-  padding: 10px;
-  color: #4a3b1a;
+  padding: 10px 15px;
   text-decoration: none;
+  color: #4a3b1a;
 }
 
 .dropdown-content a:hover {
@@ -69,48 +75,71 @@ body {
   display: block;
 }
 
-/* SECTIONS */
+/* MAIN */
 .section {
-  padding: 40px 20px;
+  padding: 30px 20px;
 }
 
 .center {
   text-align: center;
 }
 
+.subtitle {
+  max-width: 600px;
+  margin: 10px auto 30px;
+}
+
 /* PRODUCTS */
 .products {
   display: flex;
-  justify-content: center;
   gap: 20px;
+  justify-content: center;
   flex-wrap: wrap;
-  margin-top: 30px;
 }
 
 .product {
   background: white;
-  padding: 20px;
   border-radius: 20px;
-  width: 230px;
+  padding: 15px;
+  width: 260px;
   text-align: center;
 }
 
 .product img {
   width: 100%;
-  height: 150px;
+  height: 160px;
   object-fit: cover;
   border-radius: 15px;
 }
 
-/* DROPDOWNS INSIDE PRODUCTS */
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 10px;
+.product h3 {
+  margin: 10px 0 5px;
 }
 
+.desc {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* CONTROLS */
 select {
-  padding: 6px;
-  border-radius: 10px;
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  border-radius: 12px;
+}
+
+button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background-color: #c8da6f;
+  border: none;
+  border-radius: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b7c95f;
 }
