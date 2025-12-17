@@ -1,92 +1,62 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #eaff9d;
 }
 
-header {
-  background: #d8ff3f;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.header {
+  text-align: center;
+  padding: 20px;
 }
 
 .logo {
-  height: 40px;
+  width: 90px;
 }
 
-nav a {
-  margin-left: 20px;
+.nav a {
+  margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
-  color: black;
-}
-
-.home {
-  text-align: center;
-  padding: 60px 20px;
 }
 
 .products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  padding: 40px;
+  padding: 30px;
 }
 
 .product {
-  background: white;
+  background: #f9f9f9;
+  padding: 15px;
   border-radius: 20px;
-  padding: 20px;
   text-align: center;
 }
 
 .product img {
   width: 100%;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
 select, button {
-  width: 100%;
   margin-top: 10px;
-  padding: 10px;
-}
-
-button {
-  background: #b6f000;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
+  padding: 8px;
   border-radius: 10px;
+  width: 100%;
 }
 
-.basket-icon {
+.basket-float {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #b6f000;
-  padding: 15px;
+  background: #ffd700;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
   text-decoration: none;
-  font-size: 20px;
-}
-
-#basketCount {
-  background: red;
-  color: white;
-  padding: 3px 7px;
-  border-radius: 50%;
-  font-size: 12px;
-  margin-left: 5px;
-}
-
-.basket ul {
-  padding: 30px;
+  color: black;
+  z-index: 9999;
 }
