@@ -13,102 +13,40 @@
 
   <nav class="nav">
     <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="#">About</a>
+
+    <div class="dropdown">
+      <a href="shop.html">Shop</a>
+      <div class="dropdown-content">
+        <a href="#">Coasters</a>
+        <a href="#">Sets</a>
+        <a href="#">Special Items</a>
+      </div>
+    </div>
   </nav>
 </header>
 
 <main class="products">
 
-  <!-- FLURRY -->
   <div class="product">
     <img src="flurry coaster.jpg">
     <h3>Flurry Coaster</h3>
 
-    <select>
-      <option>£7.20 – Set of 2</option>
-      <option>£14.40 – Set of 4</option>
-      <option>£21.60 – Set of 6</option>
-      <option>£28.80 – Set of 8</option>
-      <option>£36.00 – Set of 10</option>
-      <option>£43.20 – Set of 12</option>
+    <select class="price">
+      <option value="7.20">£7.20 – Set of 2</option>
+      <option value="14.40">£14.40 – Set of 4</option>
+      <option value="21.60">£21.60 – Set of 6</option>
     </select>
 
-    <select>
-      <option>Red</option><option>Blue</option><option>White</option>
-      <option>Black</option><option>Green</option><option>Orange</option>
-      <option>Purple</option><option>Pink</option><option>Yellow</option>
-      <option>Brown</option><option>Grey</option>
+    <select class="color">
+      <option>Red</option>
+      <option>Blue</option>
+      <option>White</option>
+      <option>Black</option>
     </select>
 
-    <button onclick="addToBasket('Flurry Coaster', 7.20)">Add to basket</button>
-  </div>
-
-  <!-- FLOWER -->
-  <div class="product">
-    <img src="flower petal coaster.jpg">
-    <h3>Flower Petal Coaster</h3>
-
-    <select>
-      <option>£7.20 – Set of 2</option>
-      <option>£14.40 – Set of 4</option>
-      <option>£21.60 – Set of 6</option>
-      <option>£28.80 – Set of 8</option>
-      <option>£36.00 – Set of 10</option>
-      <option>£43.20 – Set of 12</option>
-    </select>
-
-    <select>
-      <option>Red</option><option>Blue</option><option>White</option>
-      <option>Black</option><option>Green</option><option>Orange</option>
-      <option>Purple</option><option>Pink</option><option>Yellow</option>
-      <option>Brown</option><option>Grey</option>
-    </select>
-
-    <button onclick="addToBasket('Flower Petal Coaster', 7.20)">Add to basket</button>
-  </div>
-
-  <!-- HELM -->
-  <div class="product">
-    <img src="helm coaster.jpg">
-    <h3>Helm Coaster</h3>
-
-    <select>
-      <option>£7.20 – Set of 2</option>
-      <option>£14.40 – Set of 4</option>
-      <option>£21.60 – Set of 6</option>
-      <option>£28.80 – Set of 8</option>
-      <option>£36.00 – Set of 10</option>
-      <option>£43.20 – Set of 12</option>
-    </select>
-
-    <select>
-      <option>Red</option><option>Blue</option><option>White</option>
-      <option>Black</option><option>Green</option><option>Orange</option>
-      <option>Purple</option><option>Pink</option><option>Yellow</option>
-      <option>Brown</option><option>Grey</option>
-    </select>
-
-    <button onclick="addToBasket('Helm Coaster', 7.20)">Add to basket</button>
-  </div>
-
-  <!-- CACTUS -->
-  <div class="product">
-    <img src="cactus coaster.jpg">
-    <h3>The Cactus</h3>
-
-    <select>
-      <option>£8 – Set of 2 (no pot)</option>
-      <option>£23 – Set of 2 (with pot)</option>
-      <option>£16 – Set of 4 (no pot)</option>
-      <option>£31 – Set of 4 (with pot)</option>
-      <option>£24 – Set of 6 (no pot)</option>
-      <option>£39 – Set of 6 (with pot)</option>
-      <option>£32 – Set of 8 (no pot)</option>
-      <option>£47 – Set of 8 (with pot)</option>
-    </select>
-
-    <button onclick="addToBasket('Cactus', 8)">Add to basket</button>
+    <button onclick="addToBasket(this, 'Flurry Coaster')">
+      Add to basket
+    </button>
   </div>
 
 </main>
