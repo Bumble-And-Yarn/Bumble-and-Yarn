@@ -1,80 +1,178 @@
+/* ---------- GLOBAL ---------- */
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
   text-align: center;
+  background: #fff;
 }
 
+h1, h2, h3 {
+  margin: 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: #6b2c91;
+}
+
+/* ---------- LOGO ---------- */
 .logo {
   width: 80px;
 }
 
+/* ---------- NAVIGATION ---------- */
 nav {
-  margin: 10px;
+  margin-top: 20px;
 }
 
 nav a {
-  margin: 0 10px;
-  color: purple;
-  text-decoration: none;
+  margin: 0 12px;
+  font-weight: bold;
 }
 
 .dropdown {
-  display: inline-block;
   position: relative;
+  display: inline-block;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,.2);
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  color: #6b2c91;
+}
+
+.dropdown-content a:hover {
+  background: #f3e6fa;
+  border-radius: 10px;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.dropdown-content a {
-  display: block;
-  padding: 8px;
+/* ---------- HOME PAGE (SCALED UP) ---------- */
+.home-hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-logo {
+  width: 160px;
+}
+
+.home-title {
+  font-size: 3.5rem;
+  margin: 15px 0 10px;
+}
+
+.home-subtitle {
+  font-size: 1.6rem;
+  margin-bottom: 30px;
+}
+
+/* ---------- PRODUCTS GRID ---------- */
+#products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 40px;
 }
 
 .product {
-  width: 320px;
-  margin: 20px auto;
-  padding: 15px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0,0,0,.15);
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  padding: 20px;
 }
 
 .product img {
   width: 100%;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
-select, button {
+/* ---------- DROPDOWNS & BUTTONS ---------- */
+select {
   width: 100%;
+  padding: 8px;
   margin-top: 8px;
-  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
 }
 
+button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  background: #6b2c91;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #54206f;
+}
+
+/* ---------- BASKET FLOATING BUTTON ---------- */
 .basket-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background: gold;
-  padding: 12px;
+  padding: 14px;
   border-radius: 50%;
-  text-decoration: none;
-  font-size: 20px;
+  font-size: 22px;
+  color: black;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
 
+/* ---------- BASKET PAGE ---------- */
 .basket-item {
   display: flex;
-  gap: 10px;
-  margin: 10px;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  margin: 15px auto;
+  max-width: 600px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .basket-item img {
-  width: 60px;
-  border-radius: 10px;
+  width: 120px;
+  border-radius: 15px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 900px) {
+  #products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  #products {
+    grid-template-columns: 1fr;
+  }
 }
