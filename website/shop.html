@@ -1,95 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Shop | Bumble & Yarn</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <img src="images/logo.png" class="logo">
+  <img src="logo.jpg" class="logo">
   <h1>Bumble & Yarn</h1>
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
+    <div class="dropdown">
+      <a href="shop.html">Shop</a>
+      <div class="dropdown-content">
+        <a href="#coasters">Coasters</a>
+        <a href="#sets">Sets</a>
+        <a href="#special">Special Items</a>
+      </div>
+    </div>
   </nav>
 </header>
 
-<div class="shop-grid">
+<div id="products"></div>
 
-  <!-- FLURRY COASTER -->
-  <div class="product">
-    <img src="images/flurry.jpg">
-    <h3>Flurry Coaster</h3>
-
-    <select class="price">
-      <option value="">Select price</option>
-      <option value="7.20">£7.20 – Set of 2</option>
-      <option value="13.80">£13.80 – Set of 4</option>
-      <option value="19.80">£19.80 – Set of 6</option>
-    </select>
-
-    <select class="colour">
-      <option value="">Select colour</option>
-      <option>Red</option>
-      <option>Blue</option>
-      <option>White</option>
-    </select>
-
-    <button onclick="addToBasket('Flurry Coaster','images/flurry.jpg',this)">
-      Add to basket
-    </button>
-  </div>
-
-  <!-- FLOWER PETAL -->
-  <div class="product">
-    <img src="images/flower.jpg">
-    <h3>Flower Petal Coaster</h3>
-
-    <select class="price">
-      <option value="">Select price</option>
-      <option value="8.50">£8.50 – Set of 2</option>
-      <option value="16.00">£16.00 – Set of 4</option>
-    </select>
-
-    <select class="colour">
-      <option value="">Select colour</option>
-      <option>Pink</option>
-      <option>Yellow</option>
-      <option>Blue</option>
-    </select>
-
-    <button onclick="addToBasket('Flower Petal Coaster','images/flower.jpg',this)">
-      Add to basket
-    </button>
-  </div>
-
-  <!-- CACTUS -->
-  <div class="product">
-    <img src="images/cactus.jpg">
-    <h3>The Cactus</h3>
-
-    <select class="price">
-      <option value="">Select price</option>
-      <option value="8">£8 – Set of 2 (no pot)</option>
-      <option value="23">£23 – Set of 2 (with pot)</option>
-      <option value="16">£16 – Set of 4 (no pot)</option>
-      <option value="31">£31 – Set of 4 (with pot)</option>
-      <option value="24">£24 – Set of 6 (no pot)</option>
-      <option value="39">£39 – Set of 6 (with pot)</option>
-      <option value="32">£32 – Set of 8 (no pot)</option>
-      <option value="47">£47 – Set of 8 (with pot)</option>
-    </select>
-
-    <button onclick="addToBasket('The Cactus','images/cactus.jpg',this,true)">
-      Add to basket
-    </button>
-  </div>
-
-</div>
-
-<a href="basket.html" class="basket-float">🛒</a>
+<a href="basket.html" class="basket-btn">🛒</a>
 
 <script src="products.js"></script>
 </body>
