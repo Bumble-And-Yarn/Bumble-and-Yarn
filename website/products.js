@@ -1,29 +1,50 @@
-let basket = JSON.parse(localStorage.getItem("basket")) || [];
+function addToBasket(name, image, button, noColour = false) {
+  const product = button.parentElement;
+  const priceSelect = product.querySelector(".price");
+  const colourSelect = product.querySelector(".colour");
 
-function addToBasket(button, name) {
-  const product = button.closest(".product");
-  const price = parseFloat(product.querySelector(".price").value);
-  const color = product.querySelector(".color").value;
+  if (!priceSelect.value) {
+    alert("Select a price");
+    return;
+  }
 
-  basket.push({ name, price, color });
-  localStorage.setItem("basket", JSON.stringify(basket));
+  if (!noColour && !colourSelect.value) {
+    alert("Select a colour");
+    return;
+  }
 
-  alert(`${name} (${color}) added to basket`);
-}
+  const basket = JSON.parse(localStorage.getItem("basket")) || [];
 
-if (document.getElementById("basketItems")) {
-  const container = document.getElementById("basketItems");
-  const totalEl = document.getElementById("total");
-
-  let total = 0;
-  container.innerHTML = "";
-
-  basket.forEach(item => {
-    const div = document.createElement("div");
-    div.textContent = `${item.name} – ${item.color} – £${item.price.toFixed(2)}`;
-    container.appendChild(div);
-    total += item.price;
+  basket.push({
+    name,
+    image,
+    price: parseFloat(priceSelect.value),
+    colour: noColour ? "N/A" : colourSelect.value
   });
 
-  totalEl.textContent = "Total: £" + total.toFixed(2);
+  localStorage.setItem("basket", JSON.stringify(basket));
+  alert("Added to basket");
+}
+
+if (document.getElementById("basket-items")) {
+  const basket = JSON.parse(localStorage.getItem("basket")) || [];
+  let total = 0;
+  const container = document.getElementById("basket-items");
+
+  basket.forEach(item => {
+    total += item.price;
+    container.innerHTML += `
+      <div class="basket-item">
+        <img src="${item.image}">
+        <div>
+          <strong>${item.name}</strong><br>
+          Colour: ${item.colour}<br>
+          £${item.price.toFixed(2)}
+        </div>
+      </div>
+    `;
+  });
+
+  document.getElementById("total").innerText =
+    "Total: £" + total.toFixed(2);
 }
