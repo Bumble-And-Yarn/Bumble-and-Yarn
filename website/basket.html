@@ -2,68 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Basket | Bumble & Yarn</title>
+  <title>Your Basket</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Your Basket</h2>
+<header>
+  <img src="logo.jpg" class="logo">
+  <h1>Your Basket</h1>
 
-<div id="basket"></div>
-<h3 id="total"></h3>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="basket.html">Checkout</a>
+  </nav>
+</header>
+
+<div id="basket-container"></div>
+
+<p id="empty-message" class="empty-message"></p>
+
+<button id="checkout-btn" class="checkout-btn">Checkout</button>
 
 <script>
+const basket = JSON.parse(localStorage.getItem("basket")) || [];
+const container = document.getElementById("basket-container");
+const emptyMessage = document.getElementById("empty-message");
+const checkoutBtn = document.getElementById("checkout-btn");
+
 function renderBasket() {
-  const basket = JSON.parse(localStorage.getItem("basket")) || [];
-  const container = document.getElementById("basket");
-  const totalEl = document.getElementById("total");
-
   container.innerHTML = "";
-  let total = 0;
 
-  basket.forEach((item, index) => {
-    total += item.price;
+  if (basket.length === 0) {
+    emptyMessage.textContent = "Nothing to buy";
+    checkoutBtn.style.display = "none";
+    return;
+  }
 
+  emptyMessage.textContent = "";
+  checkoutBtn.style.display = "block";
+
+  basket.forEach(item => {
     const div = document.createElement("div");
     div.className = "basket-item";
 
     div.innerHTML = `
-      <img 
-        src="${item.image}" 
-        style="width:120px; height:auto; border-radius:16px; flex-shrink:0;"
-      >
-
-      <div style="flex:1; text-align:left; padding-left:12px;">
-        <strong>${item.name}</strong><br>
-        ${item.option}${item.color ? " – " + item.color : ""}<br>
-        £${item.price.toFixed(2)}
+      <img src="${item.image}">
+      <div>
+        <h3>${item.name}</h3>
+        <p>Color: ${item.color || "N/A"}</p>
+        <p>Price: $${item.price}</p>
       </div>
-
-      <button 
-        class="remove-btn"
-        title="Remove item"
-        style="
-          font-size:11px;
-          padding:4px 6px;
-          border-radius:50%;
-          cursor:pointer;
-          line-height:1;
-        ">
-        🗑️
-      </button>
     `;
-
-    div.querySelector(".remove-btn").onclick = () => {
-      basket.splice(index, 1);
-      localStorage.setItem("basket", JSON.stringify(basket));
-      renderBasket();
-    };
 
     container.appendChild(div);
   });
-
-  totalEl.innerText = "Total: £" + total.toFixed(2);
 }
+
+checkoutBtn.onclick = () => {
+  if (basket.length > 0) {
+    window.location.href = "checkout.html";
+  }
+};
 
 renderBasket();
 </script>
