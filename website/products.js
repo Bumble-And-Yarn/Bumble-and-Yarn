@@ -1,36 +1,23 @@
 let basket = JSON.parse(localStorage.getItem("basket")) || [];
 
-function addToBasket(name, el) {
-  const product = el.parentElement;
-  const price = product.querySelector(".price")?.value || "";
-  const colour = product.querySelector(".colour")?.value || "";
-
-  if (!price) {
-    alert("Please select a price");
-    return;
-  }
-
-  basket.push({ name, price, colour });
+function addToBasket(name, price) {
+  basket.push({ name, price });
   localStorage.setItem("basket", JSON.stringify(basket));
-  updateBasketCount();
+  alert(name + " added to basket");
 }
 
-function updateBasketCount() {
-  const count = document.getElementById("basketCount");
-  if (count) count.textContent = basket.length;
-}
+if (document.getElementById("basketItems")) {
+  const container = document.getElementById("basketItems");
+  let total = 0;
 
-function loadBasket() {
-  const list = document.getElementById("basketItems");
-  if (!list) return;
-
-  list.innerHTML = "";
   basket.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = `${item.name} – ${item.colour || "No colour"} – ${item.price}`;
-    list.appendChild(li);
+    const div = document.createElement("div");
+    div.textContent = `${item.name} – £${item.price}`;
+    container.appendChild(div);
+    total += item.price;
   });
-}
 
-updateBasketCount();
-loadBasket();
+  const totalDiv = document.createElement("h3");
+  totalDiv.textContent = "Total: £" + total.toFixed(2);
+  container.appendChild(totalDiv);
+}
