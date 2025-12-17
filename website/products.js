@@ -2,94 +2,117 @@ const products = [
   {
     name: "Flurry Coaster",
     image: "flurry coaster.jpg",
-    category: "coasters",
     prices: [
       { label: "Set of 2", price: 7.20 },
-      { label: "Set of 4", price: 13.60 },
-      { label: "Set of 6", price: 19.20 },
-      { label: "Set of 8", price: 21.60 }
+      { label: "Set of 4", price: 14.40 },
+      { label: "Set of 6", price: 21.60 },
+      { label: "Set of 8", price: 28.80 },
+      { label: "Set of 10", price: 36.00 },
+      { label: "Set of 12", price: 43.20 }
     ],
-    colors: ["Red", "Blue", "White", "Grey"]
+    colors: [
+      "Red", "Blue", "White", "Black", "Green",
+      "Orange", "Purple", "Pink", "Yellow", "Brown", "Grey"
+    ]
   },
+
   {
     name: "Flower Petal Coaster",
     image: "flower petal coaster.jpg",
-    category: "coasters",
     prices: [
-      { label: "Set of 2", price: 8.00 },
-      { label: "Set of 4", price: 15.00 },
-      { label: "Set of 6", price: 22.00 }
+      { label: "Set of 2", price: 7.20 },
+      { label: "Set of 4", price: 14.40 },
+      { label: "Set of 6", price: 21.60 },
+      { label: "Set of 8", price: 28.80 },
+      { label: "Set of 10", price: 36.00 },
+      { label: "Set of 12", price: 43.20 }
     ],
-    colors: ["Pink", "Yellow", "White"]
+    colors: [
+      "Red", "Blue", "White", "Black", "Green",
+      "Orange", "Purple", "Pink", "Yellow", "Brown", "Grey"
+    ]
   },
+
   {
-    name: "Cactus Coaster",
-    image: "cactus coaster.jpg",
-    category: "special",
-    prices: [
-      { label: "2 without pot", price: 8 },
-      { label: "2 with pot", price: 23 },
-      { label: "4 without pot", price: 16 },
-      { label: "4 with pot", price: 31 },
-      { label: "6 without pot", price: 24 },
-      { label: "6 with pot", price: 39 },
-      { label: "8 without pot", price: 32 },
-      { label: "8 with pot", price: 47 }
-    ],
-    colors: []
-  },
-  {
-    name: "Helm Coaster",
+    name: "The Helm Coaster",
     image: "helm coaster.jpg",
-    category: "coasters",
     prices: [
-      { label: "Set of 2", price: 9.00 },
-      { label: "Set of 4", price: 17.00 }
+      { label: "Set of 2", price: 7.20 },
+      { label: "Set of 4", price: 14.40 },
+      { label: "Set of 6", price: 21.60 },
+      { label: "Set of 8", price: 28.80 },
+      { label: "Set of 10", price: 36.00 },
+      { label: "Set of 12", price: 43.20 }
     ],
-    colors: ["Navy", "White"]
+    colors: [
+      "Red", "Blue", "White", "Black", "Green",
+      "Orange", "Purple", "Pink", "Yellow", "Brown", "Grey"
+    ]
+  },
+
+  {
+    name: "The Cactus",
+    image: "cactus coaster.jpg",
+    prices: [
+      { label: "Set of 2 (without pot)", price: 8 },
+      { label: "Set of 2 (with pot)", price: 23 },
+      { label: "Set of 4 (without pot)", price: 16 },
+      { label: "Set of 4 (with pot)", price: 31 },
+      { label: "Set of 6 (without pot)", price: 24 },
+      { label: "Set of 6 (with pot)", price: 39 },
+      { label: "Set of 8 (without pot)", price: 32 },
+      { label: "Set of 8 (with pot)", price: 47 }
+    ],
+    colors: [] // ❗ NO colour dropdown for cactus
   }
 ];
 
 const container = document.getElementById("products");
 
-products.forEach(p => {
+products.forEach(product => {
   const div = document.createElement("div");
   div.className = "product";
 
-  let priceOptions = p.prices.map(pr =>
-    `<option value="${pr.price}">${pr.label} – £${pr.price}</option>`
+  const priceOptions = product.prices.map(p =>
+    `<option value="${p.price}">${p.label} – £${p.price.toFixed(2)}</option>`
   ).join("");
 
-  let colorDropdown = p.colors.length
-    ? `<select class="color">${p.colors.map(c => `<option>${c}</option>`).join("")}</select>`
+  const colorDropdown = product.colors.length
+    ? `<select class="color">
+        ${product.colors.map(c => `<option>${c}</option>`).join("")}
+      </select>`
     : "";
 
   div.innerHTML = `
-    <img src="${p.image}">
-    <h3>${p.name}</h3>
+    <img src="${product.image}">
+    <h3>${product.name}</h3>
 
-    <select class="price">${priceOptions}</select>
+    <select class="price">
+      ${priceOptions}
+    </select>
+
     ${colorDropdown}
 
     <button>Add to basket</button>
   `;
 
   div.querySelector("button").onclick = () => {
-    const price = parseFloat(div.querySelector(".price").value);
-    const option = div.querySelector(".price").selectedOptions[0].text;
-    const colorEl = div.querySelector(".color");
+    const priceSelect = div.querySelector(".price");
+    const colorSelect = div.querySelector(".color");
+
+    const item = {
+      name: product.name,
+      image: product.image,
+      option: priceSelect.options[priceSelect.selectedIndex].text,
+      price: parseFloat(priceSelect.value),
+      color: colorSelect ? colorSelect.value : ""
+    };
 
     const basket = JSON.parse(localStorage.getItem("basket")) || [];
-    basket.push({
-      name: p.name,
-      image: p.image,
-      price,
-      option,
-      color: colorEl ? colorEl.value : ""
-    });
-
+    basket.push(item);
     localStorage.setItem("basket", JSON.stringify(basket));
-    alert("Added to basket");
+
+    alert("Added to basket!");
   };
 
   container.appendChild(div);
