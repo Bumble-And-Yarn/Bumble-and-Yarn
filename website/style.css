@@ -1,95 +1,73 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
+  text-align: center;
 }
 
-.header {
-  text-align: center;
-  padding: 20px;
+header {
+  margin-bottom: 40px;
 }
 
 .logo {
-  width: 90px;
+  width: 80px;
 }
 
 .tagline {
   margin-top: 10px;
-  font-size: 16px;
 }
 
-.nav {
-  margin-top: 15px;
-}
-
-.nav a {
-  margin: 0 15px;
-  text-decoration: none;
+nav a {
+  margin: 0 10px;
   font-weight: bold;
 }
 
-/* DROPDOWN */
-.dropdown {
-  display: inline-block;
-  position: relative;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background: white;
-  min-width: 150px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 10px;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* PRODUCTS */
-.products {
+.shop-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  padding: 30px;
+  padding: 40px;
 }
 
 .product {
-  background: #f9f9f9;
-  padding: 15px;
+  background: #f7f7f7;
+  padding: 20px;
   border-radius: 20px;
-  text-align: center;
 }
 
 .product img {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 select, button {
+  width: 100%;
   margin-top: 10px;
   padding: 8px;
-  border-radius: 10px;
-  width: 100%;
 }
 
-/* BASKET */
+button {
+  background: #caff00;
+  border: none;
+  cursor: pointer;
+}
+
 .basket-float {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #ffd700;
-  width: 60px;
-  height: 60px;
+  font-size: 28px;
+  background: #caff00;
+  padding: 15px;
   border-radius: 50%;
+}
+
+.basket-item {
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 26px;
-  text-decoration: none;
-  color: black;
+  gap: 15px;
+  margin: 15px;
+}
+
+.basket-item img {
+  width: 60px;
+  border-radius: 10px;
 }
