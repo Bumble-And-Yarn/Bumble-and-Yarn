@@ -28,13 +28,18 @@ function renderBasket() {
     div.className = "basket-item";
 
     div.innerHTML = `
-      <img src="${item.image}">
+      <img src="${item.image}" style="width:80px; border-radius:12px;">
       <div style="flex:1; text-align:left;">
         <strong>${item.name}</strong><br>
         ${item.option}${item.color ? " – " + item.color : ""}<br>
         £${item.price.toFixed(2)}
       </div>
-      <button class="remove-btn" title="Remove item">🗑️</button>
+      <button 
+        class="remove-btn" 
+        title="Remove item"
+        style="font-size:14px; padding:6px 8px; border-radius:50%; cursor:pointer;">
+        🗑️
+      </button>
     `;
 
     div.querySelector(".remove-btn").onclick = () => {
