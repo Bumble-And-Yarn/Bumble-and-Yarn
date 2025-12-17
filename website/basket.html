@@ -2,39 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Basket</title>
+  <title>Your Basket | Bumble & Yarn</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h2>Your Basket</h2>
+
 <div id="basket"></div>
 <h3 id="total"></h3>
 
 <script>
-const basket = JSON.parse(localStorage.getItem("basket")) || [];
-let total = 0;
+function renderBasket() {
+  const basket = JSON.parse(localStorage.getItem("basket")) || [];
+  const container = document.getElementById("basket");
+  const totalEl = document.getElementById("total");
 
-const container = document.getElementById("basket");
+  container.innerHTML = "";
+  let total = 0;
 
-basket.forEach(item => {
-  total += item.price;
+  basket.forEach((item, index) => {
+    total += item.price;
 
-  const div = document.createElement("div");
-  div.className = "basket-item";
-  div.innerHTML = `
-    <img src="${item.image}">
-    <div>
-      <strong>${item.name}</strong><br>
-      ${item.option}${item.color ? " – " + item.color : ""}<br>
-      £${item.price.toFixed(2)}
-    </div>
-  `;
-  container.appendChild(div);
-});
+    const div = document.createElement("div");
+    div.className = "basket-item";
 
-document.getElementById("total").innerText =
-  "Total: £" + total.toFixed(2);
+    div.innerHTML = `
+      <img src="${item.image}">
+      <div style="flex:1; text-align:left;">
+        <strong>${item.name}</strong><br>
+        ${item.option}${item.color ? " – " + item.color : ""}<br>
+        £${item.price.toFixed(2)}
+      </div>
+      <button class="remove-btn" title="Remove item">🗑️</button>
+    `;
+
+    div.querySelector(".remove-btn").onclick = () => {
+      basket.splice(index, 1);
+      localStorage.setItem("basket", JSON.stringify(basket));
+      renderBasket();
+    };
+
+    container.appendChild(div);
+  });
+
+  totalEl.innerText = "Total: £" + total.toFixed(2);
+}
+
+renderBasket();
 </script>
 
 </body>
