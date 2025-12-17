@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <img src="logo.jpg" class="logo">
+  <h1>Checkout</h1>
+</header>
+
+<div id="checkout-container"></div>
+
+<p id="empty-message" class="empty-message"></p>
+
+<script>
+const basket = JSON.parse(localStorage.getItem("basket")) || [];
+const container = document.getElementById("checkout-container");
+const emptyMessage = document.getElementById("empty-message");
+
+if (basket.length === 0) {
+  emptyMessage.textContent = "Nothing to buy";
+} else {
+  let total = 0;
+
+  basket.forEach(item => {
+    total += Number(item.price);
+
+    const div = document.createElement("div");
+    div.className = "basket-item";
+
+    div.innerHTML = `
+      <img src="${item.image}">
+      <div>
+        <h3>${item.name}</h3>
+        <p>Color: ${item.color || "N/A"}</p>
+        <p>Price: $${item.price}</p>
+      </div>
+    `;
+
+    container.appendChild(div);
+  });
+
+  const totalDiv = document.createElement("h2");
+  totalDiv.textContent = "Total: $" + total.toFixed(2);
+  container.appendChild(totalDiv);
+}
+</script>
+
+</body>
+</html>
