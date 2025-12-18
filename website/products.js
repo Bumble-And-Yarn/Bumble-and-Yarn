@@ -78,14 +78,20 @@ if (container) {
   });
 }
 
+function extractPrice(text) {
+  const match = text.match(/£([\d.]+)/);
+  return match ? parseFloat(match[1]) : 0;
+}
+
 function addToBasket(index) {
-  const price = document.getElementById(`price-${index}`).value;
+  const priceText = document.getElementById(`price-${index}`).value;
   const colorEl = document.getElementById(`color-${index}`);
   const color = colorEl ? colorEl.value : "N/A";
 
   basket.push({
     name: products[index].name,
-    price,
+    priceText,
+    priceValue: extractPrice(priceText),
     color,
     image: products[index].image
   });
@@ -95,6 +101,7 @@ function addToBasket(index) {
 }
 
 const basketContainer = document.getElementById("basket-items");
+const totalEl = document.getElementById("total");
 
 if (basketContainer) {
   if (basket.length === 0) {
@@ -103,15 +110,14 @@ if (basketContainer) {
     let total = 0;
 
     basket.forEach((item, index) => {
-      const num = parseFloat(item.price.replace("£",""));
-      total += num;
+      total += item.priceValue;
 
       basketContainer.innerHTML += `
         <div class="basket-item">
           <img src="${item.image}">
           <div>
             <strong>${item.name}</strong><br>
-            ${item.price}<br>
+            ${item.priceText}<br>
             Colour: ${item.color}
           </div>
           <span class="bin" onclick="removeFromBasket(${index})">🗑</span>
@@ -119,7 +125,7 @@ if (basketContainer) {
       `;
     });
 
-    document.getElementById("total").innerText = `Total: £${total.toFixed(2)}`;
+    totalEl.innerText = `Total: £${total.toFixed(2)}`;
   }
 }
 
