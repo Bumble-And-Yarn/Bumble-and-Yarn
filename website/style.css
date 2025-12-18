@@ -1,4 +1,4 @@
-/* ================= RESET ================= */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -6,228 +6,138 @@
   font-family: Arial, sans-serif;
 }
 
-/* ================= BODY ================= */
-body {
-  background-color: #fffafc;
-  color: #333;
-}
-
-/* ================= HEADER ================= */
-header {
+/* HOME PAGE */
+.home {
   text-align: center;
-  padding: 30px 20px;
+  padding: 80px 20px;
 }
 
 .logo {
-  width: 160px;
-  display: block;
-  margin: 0 auto;
+  width: 140px;
+  border-radius: 20px;
 }
 
-.home-title {
-  font-size: 34px;
-  margin-top: 15px;
+.home h1 {
+  font-size: 48px;
+  margin-top: 20px;
 }
 
-.home-subtitle {
-  font-size: 18px;
-  margin-top: 8px;
+.tagline {
+  font-size: 20px;
+  margin: 15px 0 30px;
 }
 
-/* ================= NAV ================= */
-nav {
-  margin-top: 25px;
-}
-
-nav ul {
-  list-style: none;
+/* NAVIGATION */
+.nav {
   display: flex;
   justify-content: center;
-  gap: 35px;
+  gap: 30px;
 }
 
-nav li {
-  position: relative;
-}
-
-nav a {
+.nav a,
+.dropbtn {
   text-decoration: none;
   font-size: 18px;
-  color: #333;
-}
-
-/* ================= CATEGORY DROPDOWNS ================= */
-nav ul ul {
-  display: none;
-  position: absolute;
-  top: 28px;
-  left: 0;
-  background: white;
-  padding: 12px;
-  border-radius: 14px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-  z-index: 1000;
-}
-
-nav li:hover > ul {
-  display: block;
-}
-
-nav ul ul li {
-  margin: 6px 0;
-}
-
-/* ================= PRODUCTS GRID ================= */
-.products {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 35px;
-  padding: 50px;
-}
-
-/* ================= PRODUCT CARD ================= */
-.product {
-  background: white;
-  border-radius: 22px;
-  padding: 18px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
-
-/* ================= PRODUCT IMAGE (FIXED SIZE) ================= */
-.product img {
-  width: 100%;
-  height: 220px;        /* ← back to normal size */
-  object-fit: cover;
-  border-radius: 22px;
-}
-
-/* ================= PRODUCT TEXT ================= */
-.product h3 {
-  margin-top: 14px;
-  font-size: 20px;
-}
-
-/* ================= PRODUCT DROPDOWNS ================= */
-.product select {
-  width: 100%;
-  padding: 9px;
-  margin-top: 10px;
-  border-radius: 14px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-}
-
-/* ================= ADD TO BASKET BUTTON ================= */
-.product button {
-  margin-top: 12px;
-  padding: 10px;
-  width: 100%;
-  border-radius: 18px;
-  border: none;
-  background-color: #d89bb6;
-  color: white;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.product button:hover {
-  opacity: 0.9;
-}
-
-/* ================= BASKET ICON (RESTORED) ================= */
-.basket-icon {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 62px;
-  height: 62px;
-  background: #d89bb6;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 3000;
-}
-
-.basket-icon img {
-  width: 30px;
-}
-
-/* ================= BASKET PAGE ================= */
-#basket-container,
-#checkout-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-/* ================= BASKET ITEM ================= */
-.basket-item {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  background: white;
-  padding: 14px;
-  border-radius: 18px;
-  margin-bottom: 18px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-}
-
-/* ================= BASKET IMAGE ================= */
-.basket-item img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 14px;
-}
-
-/* ================= BIN BUTTON ================= */
-.remove-btn {
-  margin-left: auto;
   background: none;
   border: none;
   cursor: pointer;
+  color: black;
 }
 
-.remove-btn img {
-  width: 20px;
+/* DROPDOWN */
+.dropdown {
+  position: relative;
 }
 
-/* ================= CHECKOUT BUTTON ================= */
-.checkout-btn {
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.dropdown-content a {
+  padding: 10px;
   display: block;
-  margin: 35px auto;
-  padding: 14px 40px;
-  font-size: 18px;
-  border-radius: 22px;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* PRODUCTS PAGE */
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 50px;
+}
+
+.product {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 20px;
+}
+
+/* DROPDOWNS UNDER PRODUCTS */
+select {
+  width: 90%;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+/* ADD TO BASKET BUTTON */
+.add-btn {
+  margin-top: 15px;
+  padding: 10px;
+  width: 90%;
   border: none;
-  background-color: #d89bb6;
+  border-radius: 12px;
+  background: black;
   color: white;
   cursor: pointer;
 }
 
-.checkout-btn:hover {
-  opacity: 0.9;
+/* BASKET ICON */
+.basket {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 28px;
+  background: white;
+  padding: 15px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  text-decoration: none;
+  z-index: 1000;
 }
 
-/* ================= EMPTY MESSAGE ================= */
-.empty-message {
-  text-align: center;
-  font-size: 20px;
-  margin-top: 30px;
+/* BASKET PAGE */
+.basket-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 900px) {
-  .products {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.basket-item img {
+  width: 60px;
+  border-radius: 10px;
 }
 
-@media (max-width: 600px) {
-  .products {
-    grid-template-columns: 1fr;
-  }
+.bin {
+  font-size: 14px;
+  cursor: pointer;
 }
