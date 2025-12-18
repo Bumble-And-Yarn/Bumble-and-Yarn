@@ -2,71 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Basket</title>
+  <title>Basket | Bumble & Yarn</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <img src="logo.jpg" class="logo">
   <h1>Your Basket</h1>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="basket.html">Checkout</a>
-  </nav>
 </header>
 
-<div id="basket-container"></div>
+<div id="basket-items"></div>
+<h2 id="total"></h2>
 
-<p id="empty-message" class="empty-message"></p>
+<a href="checkout.html" class="checkout-btn">Checkout</a>
 
-<button id="checkout-btn" class="checkout-btn">Checkout</button>
+<a href="basket.html" class="basket">🛒</a>
 
-<script>
-const basket = JSON.parse(localStorage.getItem("basket")) || [];
-const container = document.getElementById("basket-container");
-const emptyMessage = document.getElementById("empty-message");
-const checkoutBtn = document.getElementById("checkout-btn");
-
-function renderBasket() {
-  container.innerHTML = "";
-
-  if (basket.length === 0) {
-    emptyMessage.textContent = "Nothing to buy";
-    checkoutBtn.style.display = "none";
-    return;
-  }
-
-  emptyMessage.textContent = "";
-  checkoutBtn.style.display = "block";
-
-  basket.forEach(item => {
-    const div = document.createElement("div");
-    div.className = "basket-item";
-
-    div.innerHTML = `
-      <img src="${item.image}">
-      <div>
-        <h3>${item.name}</h3>
-        <p>Color: ${item.color || "N/A"}</p>
-        <p>Price: $${item.price}</p>
-      </div>
-    `;
-
-    container.appendChild(div);
-  });
-}
-
-checkoutBtn.onclick = () => {
-  if (basket.length > 0) {
-    window.location.href = "checkout.html";
-  }
-};
-
-renderBasket();
-</script>
-
+<script src="products.js"></script>
 </body>
 </html>
