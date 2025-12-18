@@ -1,119 +1,130 @@
+let basket = JSON.parse(localStorage.getItem("basket")) || [];
+
 const products = [
   {
     name: "Flurry Coaster",
     image: "flurry coaster.jpg",
     prices: [
-      { label: "Set of 2", price: 7.20 },
-      { label: "Set of 4", price: 14.40 },
-      { label: "Set of 6", price: 21.60 },
-      { label: "Set of 8", price: 28.80 },
-      { label: "Set of 10", price: 36.00 },
-      { label: "Set of 12", price: 43.20 }
+      "£7.20 – Set of 2",
+      "£14.40 – Set of 4",
+      "£21.60 – Set of 6",
+      "£28.80 – Set of 8",
+      "£36.00 – Set of 12"
     ],
-    colors: [
-      "Red", "Blue", "White", "Black", "Green",
-      "Orange", "Purple", "Pink", "Yellow", "Brown", "Grey"
-    ]
+    colors: ["Red","Blue","White","Black","Green","Orange","Purple","Pink","Yellow","Brown","Grey"]
   },
-
   {
     name: "Flower Petal Coaster",
     image: "flower petal coaster.jpg",
     prices: [
-      { label: "Set of 2", price: 7.20 },
-      { label: "Set of 4", price: 14.40 },
-      { label: "Set of 6", price: 21.60 },
-      { label: "Set of 8", price: 28.80 },
-      { label: "Set of 10", price: 36.00 },
-      { label: "Set of 12", price: 43.20 }
+      "£7.20 – Set of 2",
+      "£14.40 – Set of 4",
+      "£21.60 – Set of 6",
+      "£28.80 – Set of 8",
+      "£36.00 – Set of 12"
     ],
-    colors: [
-      "Red", "Blue", "White", "Black", "Green",
-      "Orange", "Purple", "Pink", "Yellow", "Brown", "Grey"
-    ]
+    colors: ["Red","Blue","White","Black","Green","Orange","Purple","Pink","Yellow","Brown","Grey"]
   },
-
   {
-    name: "The Helm Coaster",
+    name: "Helm Coaster",
     image: "helm coaster.jpg",
     prices: [
-      { label: "Set of 2", price: 7.20 },
-      { label: "Set of 4", price: 14.40 },
-      { label: "Set of 6", price: 21.60 },
-      { label: "Set of 8", price: 28.80 },
-      { label: "Set of 10", price: 36.00 },
-      { label: "Set of 12", price: 43.20 }
+      "£7.20 – Set of 2",
+      "£14.40 – Set of 4",
+      "£21.60 – Set of 6",
+      "£28.80 – Set of 8",
+      "£36.00 – Set of 12"
     ],
-    colors: [
-      "Red", "Blue", "White", "Black", "Green",
-      "Orange", "Purple", "Pink", "Yellow", "Brown", "Grey"
-    ]
+    colors: ["Red","Blue","White","Black","Green","Orange","Purple","Pink","Yellow","Brown","Grey"]
   },
-
   {
-    name: "The Cactus",
+    name: "Cactus",
     image: "cactus coaster.jpg",
     prices: [
-      { label: "Set of 2 (without pot)", price: 8 },
-      { label: "Set of 2 (with pot)", price: 23 },
-      { label: "Set of 4 (without pot)", price: 16 },
-      { label: "Set of 4 (with pot)", price: 31 },
-      { label: "Set of 6 (without pot)", price: 24 },
-      { label: "Set of 6 (with pot)", price: 39 },
-      { label: "Set of 8 (without pot)", price: 32 },
-      { label: "Set of 8 (with pot)", price: 47 }
+      "£8 – Set of 2 (no pot)",
+      "£23 – Set of 2 (with pot)",
+      "£16 – Set of 4 (no pot)",
+      "£31 – Set of 4 (with pot)",
+      "£24 – Set of 6 (no pot)",
+      "£39 – Set of 6 (with pot)",
+      "£32 – Set of 8 (no pot)",
+      "£47 – Set of 8 (with pot)"
     ],
-    colors: [] // ❗ NO colour dropdown for cactus
+    colors: []
   }
 ];
 
 const container = document.getElementById("products");
 
-products.forEach(product => {
-  const div = document.createElement("div");
-  div.className = "product";
+if (container) {
+  products.forEach((p, i) => {
+    container.innerHTML += `
+      <div class="product">
+        <img src="${p.image}">
+        <h3>${p.name}</h3>
 
-  const priceOptions = product.prices.map(p =>
-    `<option value="${p.price}">${p.label} – £${p.price.toFixed(2)}</option>`
-  ).join("");
+        <select id="price-${i}">
+          ${p.prices.map(pr => `<option>${pr}</option>`).join("")}
+        </select>
 
-  const colorDropdown = product.colors.length
-    ? `<select class="color">
-        ${product.colors.map(c => `<option>${c}</option>`).join("")}
-      </select>`
-    : "";
+        ${p.colors.length ? `
+        <select id="color-${i}">
+          ${p.colors.map(c => `<option>${c}</option>`).join("")}
+        </select>` : ""}
 
-  div.innerHTML = `
-    <img src="${product.image}">
-    <h3>${product.name}</h3>
+        <button class="add-btn" onclick="addToBasket(${i})">Add to Basket</button>
+      </div>
+    `;
+  });
+}
 
-    <select class="price">
-      ${priceOptions}
-    </select>
+function addToBasket(index) {
+  const price = document.getElementById(`price-${index}`).value;
+  const colorEl = document.getElementById(`color-${index}`);
+  const color = colorEl ? colorEl.value : "N/A";
 
-    ${colorDropdown}
+  basket.push({
+    name: products[index].name,
+    price,
+    color,
+    image: products[index].image
+  });
 
-    <button>Add to basket</button>
-  `;
+  localStorage.setItem("basket", JSON.stringify(basket));
+  alert("Added to basket!");
+}
 
-  div.querySelector("button").onclick = () => {
-    const priceSelect = div.querySelector(".price");
-    const colorSelect = div.querySelector(".color");
+const basketContainer = document.getElementById("basket-items");
 
-    const item = {
-      name: product.name,
-      image: product.image,
-      option: priceSelect.options[priceSelect.selectedIndex].text,
-      price: parseFloat(priceSelect.value),
-      color: colorSelect ? colorSelect.value : ""
-    };
+if (basketContainer) {
+  if (basket.length === 0) {
+    basketContainer.innerHTML = "<p>Nothing to buy</p>";
+  } else {
+    let total = 0;
 
-    const basket = JSON.parse(localStorage.getItem("basket")) || [];
-    basket.push(item);
-    localStorage.setItem("basket", JSON.stringify(basket));
+    basket.forEach((item, index) => {
+      const num = parseFloat(item.price.replace("£",""));
+      total += num;
 
-    alert("Added to basket!");
-  };
+      basketContainer.innerHTML += `
+        <div class="basket-item">
+          <img src="${item.image}">
+          <div>
+            <strong>${item.name}</strong><br>
+            ${item.price}<br>
+            Colour: ${item.color}
+          </div>
+          <span class="bin" onclick="removeFromBasket(${index})">🗑</span>
+        </div>
+      `;
+    });
 
-  container.appendChild(div);
-});
+    document.getElementById("total").innerText = `Total: £${total.toFixed(2)}`;
+  }
+}
+
+function removeFromBasket(index) {
+  basket.splice(index, 1);
+  localStorage.setItem("basket", JSON.stringify(basket));
+  location.reload();
+}
