@@ -17,10 +17,19 @@
   </nav>
 </header>
 
+<!-- ✅ CATEGORY DROPDOWN -->
+<div style="text-align:center; margin:20px;">
+  <select id="categoryFilter" onchange="filterProducts()">
+    <option value="all">All Products</option>
+    <option value="coasters">Coasters</option>
+    <option value="special">Special Sets</option>
+  </select>
+</div>
+
 <main class="products">
 
   <!-- FLURRY -->
-  <div class="product">
+  <div class="product" data-category="coasters">
     <img src="flurry coaster.jpg">
     <h3>Flurry Coaster</h3>
 
@@ -33,8 +42,8 @@
     <select class="color">
       <option>White</option>
       <option>Blue</option>
-      <option>Pink</option>
       <option>Grey</option>
+      <option>Pink</option>
     </select>
 
     <button onclick="addToBasket('Flurry Coaster','flurry coaster.jpg')">
@@ -43,7 +52,7 @@
   </div>
 
   <!-- FLOWER PETAL -->
-  <div class="product">
+  <div class="product" data-category="coasters">
     <img src="flower petal coaster.jpg">
     <h3>Flower Petal Coaster</h3>
 
@@ -55,8 +64,8 @@
 
     <select class="color">
       <option>Pink</option>
-      <option>Yellow</option>
       <option>Purple</option>
+      <option>Yellow</option>
       <option>White</option>
     </select>
 
@@ -66,7 +75,7 @@
   </div>
 
   <!-- HELM -->
-  <div class="product">
+  <div class="product" data-category="coasters">
     <img src="helm coaster.jpg">
     <h3>Helm Coaster</h3>
 
@@ -88,7 +97,7 @@
   </div>
 
   <!-- CACTUS -->
-  <div class="product">
+  <div class="product" data-category="special">
     <img src="cactus coaster.jpg">
     <h3>Cactus Coaster</h3>
 
@@ -134,6 +143,19 @@ function addToBasket(name, img) {
   localStorage.setItem('basket', JSON.stringify(basket));
 
   alert("Added to basket!");
+}
+
+function filterProducts() {
+  const selected = document.getElementById("categoryFilter").value;
+  const products = document.querySelectorAll(".product");
+
+  products.forEach(p => {
+    if (selected === "all" || p.dataset.category === selected) {
+      p.style.display = "block";
+    } else {
+      p.style.display = "none";
+    }
+  });
 }
 </script>
 
