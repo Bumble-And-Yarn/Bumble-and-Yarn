@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Products | Bumble & Yarn</title>
+  <title>Shop | Bumble & Yarn</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,6 +34,7 @@
       <option>White</option>
       <option>Blue</option>
       <option>Pink</option>
+      <option>Grey</option>
     </select>
 
     <button onclick="addToBasket('Flurry Coaster','flurry coaster.jpg')">
@@ -41,7 +42,7 @@
     </button>
   </div>
 
-  <!-- FLOWER -->
+  <!-- FLOWER PETAL -->
   <div class="product">
     <img src="flower petal coaster.jpg">
     <h3>Flower Petal Coaster</h3>
@@ -49,12 +50,14 @@
     <select class="price">
       <option value="8">£8 – Set of 2</option>
       <option value="16">£16 – Set of 4</option>
+      <option value="24">£24 – Set of 6</option>
     </select>
 
     <select class="color">
-      <option>Yellow</option>
       <option>Pink</option>
+      <option>Yellow</option>
       <option>Purple</option>
+      <option>White</option>
     </select>
 
     <button onclick="addToBasket('Flower Petal Coaster','flower petal coaster.jpg')">
@@ -70,11 +73,13 @@
     <select class="price">
       <option value="9">£9 – Set of 2</option>
       <option value="18">£18 – Set of 4</option>
+      <option value="27">£27 – Set of 6</option>
     </select>
 
     <select class="color">
       <option>Blue</option>
       <option>Grey</option>
+      <option>Natural</option>
     </select>
 
     <button onclick="addToBasket('Helm Coaster','helm coaster.jpg')">
@@ -89,13 +94,16 @@
 
     <select class="price">
       <option value="8">£8 – Set of 2 (no pot)</option>
-      <option value="23">£23 – Set of 2 (with pot)</option>
       <option value="16">£16 – Set of 4 (no pot)</option>
-      <option value="31">£31 – Set of 4 (with pot)</option>
       <option value="24">£24 – Set of 6 (no pot)</option>
-      <option value="39">£39 – Set of 6 (with pot)</option>
-      <option value="32">£32 – Set of 8 (no pot)</option>
-      <option value="47">£47 – Set of 8 (with pot)</option>
+      <option value="23">£23 – Set of 2 (with pot)</option>
+      <option value="31">£31 – Set of 4 (with pot)</option>
+    </select>
+
+    <select class="color">
+      <option>Green</option>
+      <option>Light Green</option>
+      <option>Dark Green</option>
     </select>
 
     <button onclick="addToBasket('Cactus Coaster','cactus coaster.jpg')">
@@ -118,7 +126,7 @@ function addToBasket(name, img) {
     image: img,
     price: Number(priceSelect.value),
     priceText: priceSelect.options[priceSelect.selectedIndex].text,
-    color: colorSelect ? colorSelect.value : "N/A"
+    color: colorSelect.value
   };
 
   const basket = JSON.parse(localStorage.getItem('basket')) || [];
