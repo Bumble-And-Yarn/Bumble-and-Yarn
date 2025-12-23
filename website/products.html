@@ -1,136 +1,133 @@
-let basket = JSON.parse(localStorage.getItem("basket")) || [];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Products | Bumble & Yarn</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-const products = [
-  {
-    name: "Flurry Coaster",
-    image: "flurry coaster.jpg",
-    prices: [
-      "£7.20 – Set of 2",
-      "£14.40 – Set of 4",
-      "£21.60 – Set of 6",
-      "£28.80 – Set of 8",
-      "£36.00 – Set of 12"
-    ],
-    colors: ["Red","Blue","White","Black","Green","Orange","Purple","Pink","Yellow","Brown","Grey"]
-  },
-  {
-    name: "Flower Petal Coaster",
-    image: "flower petal coaster.jpg",
-    prices: [
-      "£7.20 – Set of 2",
-      "£14.40 – Set of 4",
-      "£21.60 – Set of 6",
-      "£28.80 – Set of 8",
-      "£36.00 – Set of 12"
-    ],
-    colors: ["Red","Blue","White","Black","Green","Orange","Purple","Pink","Yellow","Brown","Grey"]
-  },
-  {
-    name: "Helm Coaster",
-    image: "helm coaster.jpg",
-    prices: [
-      "£7.20 – Set of 2",
-      "£14.40 – Set of 4",
-      "£21.60 – Set of 6",
-      "£28.80 – Set of 8",
-      "£36.00 – Set of 12"
-    ],
-    colors: ["Red","Blue","White","Black","Green","Orange","Purple","Pink","Yellow","Brown","Grey"]
-  },
-  {
-    name: "Cactus",
-    image: "cactus coaster.jpg",
-    prices: [
-      "£8 – Set of 2 (no pot)",
-      "£23 – Set of 2 (with pot)",
-      "£16 – Set of 4 (no pot)",
-      "£31 – Set of 4 (with pot)",
-      "£24 – Set of 6 (no pot)",
-      "£39 – Set of 6 (with pot)",
-      "£32 – Set of 8 (no pot)",
-      "£47 – Set of 8 (with pot)"
-    ],
-    colors: []
-  }
-];
+<header class="header">
+  <img src="logo.jpg" class="logo">
+  <h1>Bumble & Yarn</h1>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="products.html">Shop</a>
+    <a href="checkout.html">Checkout</a>
+  </nav>
+</header>
 
-const container = document.getElementById("products");
+<main class="products">
 
-if (container) {
-  products.forEach((p, i) => {
-    container.innerHTML += `
-      <div class="product">
-        <img src="${p.image}">
-        <h3>${p.name}</h3>
+  <!-- FLURRY -->
+  <div class="product">
+    <img src="flurry coaster.jpg">
+    <h3>Flurry Coaster</h3>
 
-        <select id="price-${i}">
-          ${p.prices.map(pr => `<option>${pr}</option>`).join("")}
-        </select>
+    <select class="price">
+      <option value="8">£8 – Set of 2</option>
+      <option value="16">£16 – Set of 4</option>
+      <option value="24">£24 – Set of 6</option>
+    </select>
 
-        ${p.colors.length ? `
-        <select id="color-${i}">
-          ${p.colors.map(c => `<option>${c}</option>`).join("")}
-        </select>` : ""}
+    <select class="color">
+      <option>White</option>
+      <option>Blue</option>
+      <option>Pink</option>
+    </select>
 
-        <button class="add-btn" onclick="addToBasket(${i})">Add to Basket</button>
-      </div>
-    `;
-  });
-}
+    <button onclick="addToBasket('Flurry Coaster','flurry coaster.jpg')">
+      Add to basket
+    </button>
+  </div>
 
-function extractPrice(text) {
-  const match = text.match(/£([\d.]+)/);
-  return match ? parseFloat(match[1]) : 0;
-}
+  <!-- FLOWER -->
+  <div class="product">
+    <img src="flower petal coaster.jpg">
+    <h3>Flower Petal Coaster</h3>
 
-function addToBasket(index) {
-  const priceText = document.getElementById(`price-${index}`).value;
-  const colorEl = document.getElementById(`color-${index}`);
-  const color = colorEl ? colorEl.value : "N/A";
+    <select class="price">
+      <option value="8">£8 – Set of 2</option>
+      <option value="16">£16 – Set of 4</option>
+    </select>
 
-  basket.push({
-    name: products[index].name,
-    priceText,
-    priceValue: extractPrice(priceText),
-    color,
-    image: products[index].image
-  });
+    <select class="color">
+      <option>Yellow</option>
+      <option>Pink</option>
+      <option>Purple</option>
+    </select>
 
-  localStorage.setItem("basket", JSON.stringify(basket));
+    <button onclick="addToBasket('Flower Petal Coaster','flower petal coaster.jpg')">
+      Add to basket
+    </button>
+  </div>
+
+  <!-- HELM -->
+  <div class="product">
+    <img src="helm coaster.jpg">
+    <h3>Helm Coaster</h3>
+
+    <select class="price">
+      <option value="9">£9 – Set of 2</option>
+      <option value="18">£18 – Set of 4</option>
+    </select>
+
+    <select class="color">
+      <option>Blue</option>
+      <option>Grey</option>
+    </select>
+
+    <button onclick="addToBasket('Helm Coaster','helm coaster.jpg')">
+      Add to basket
+    </button>
+  </div>
+
+  <!-- CACTUS -->
+  <div class="product">
+    <img src="cactus coaster.jpg">
+    <h3>Cactus Coaster</h3>
+
+    <select class="price">
+      <option value="8">£8 – Set of 2 (no pot)</option>
+      <option value="23">£23 – Set of 2 (with pot)</option>
+      <option value="16">£16 – Set of 4 (no pot)</option>
+      <option value="31">£31 – Set of 4 (with pot)</option>
+      <option value="24">£24 – Set of 6 (no pot)</option>
+      <option value="39">£39 – Set of 6 (with pot)</option>
+      <option value="32">£32 – Set of 8 (no pot)</option>
+      <option value="47">£47 – Set of 8 (with pot)</option>
+    </select>
+
+    <button onclick="addToBasket('Cactus Coaster','cactus coaster.jpg')">
+      Add to basket
+    </button>
+  </div>
+
+</main>
+
+<a href="checkout.html" class="basket-icon">🛒</a>
+
+<script>
+function addToBasket(name, img) {
+  const product = event.target.closest('.product');
+  const priceSelect = product.querySelector('.price');
+  const colorSelect = product.querySelector('.color');
+
+  const item = {
+    name,
+    image: img,
+    price: Number(priceSelect.value),
+    priceText: priceSelect.options[priceSelect.selectedIndex].text,
+    color: colorSelect ? colorSelect.value : "N/A"
+  };
+
+  const basket = JSON.parse(localStorage.getItem('basket')) || [];
+  basket.push(item);
+  localStorage.setItem('basket', JSON.stringify(basket));
+
   alert("Added to basket!");
 }
+</script>
 
-const basketContainer = document.getElementById("basket-items");
-const totalEl = document.getElementById("total");
-
-if (basketContainer) {
-  if (basket.length === 0) {
-    basketContainer.innerHTML = "<p>Nothing to buy</p>";
-  } else {
-    let total = 0;
-
-    basket.forEach((item, index) => {
-      total += item.priceValue;
-
-      basketContainer.innerHTML += `
-        <div class="basket-item">
-          <img src="${item.image}">
-          <div>
-            <strong>${item.name}</strong><br>
-            ${item.priceText}<br>
-            Colour: ${item.color}
-          </div>
-          <span class="bin" onclick="removeFromBasket(${index})">🗑</span>
-        </div>
-      `;
-    });
-
-    totalEl.innerText = `Total: £${total.toFixed(2)}`;
-  }
-}
-
-function removeFromBasket(index) {
-  basket.splice(index, 1);
-  localStorage.setItem("basket", JSON.stringify(basket));
-  location.reload();
-}
+</body>
+</html>
