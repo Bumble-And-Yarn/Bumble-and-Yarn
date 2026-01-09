@@ -18,11 +18,10 @@
 
 <h1 class="page-title">Our Products</h1>
 
-<!-- ✅ CATEGORY DROPDOWN -->
+<!-- ✅ ONLY ONE CATEGORY -->
 <select id="categoryFilter" onchange="filterCategory()">
   <option value="all">All Products</option>
   <option value="coasters">Coasters</option>
-  <option value="plants">Plants</option>
 </select>
 
 <div class="products">
@@ -47,7 +46,7 @@
     <option value="36">£36.00 – set of 12</option>
   </select>
 
-  <button onclick="addToBasket('Flurry Coaster', this)">Add to basket</button>
+  <button onclick="addToBasket(this)">Add to basket</button>
 </div>
 
 <!-- FLOWER PETAL -->
@@ -70,7 +69,7 @@
     <option value="36">£36.00 – set of 12</option>
   </select>
 
-  <button onclick="addToBasket('Flower Petal Coaster', this)">Add to basket</button>
+  <button onclick="addToBasket(this)">Add to basket</button>
 </div>
 
 <!-- HELM -->
@@ -93,11 +92,11 @@
     <option value="36">£36.00 – set of 12</option>
   </select>
 
-  <button onclick="addToBasket('Helm Coaster', this)">Add to basket</button>
+  <button onclick="addToBasket(this)">Add to basket</button>
 </div>
 
-<!-- CACTUS -->
-<div class="product" data-category="plants">
+<!-- CACTUS (STILL COASTERS) -->
+<div class="product" data-category="coasters">
   <img src="cactus coaster.jpg">
   <h3>Cactus</h3>
 
@@ -112,7 +111,7 @@
     <option value="47">£47 – 8 (with pot)</option>
   </select>
 
-  <button onclick="addToBasket('Cactus', this)">Add to basket</button>
+  <button onclick="addToBasket(this)">Add to basket</button>
 </div>
 
 </div>
