@@ -1,30 +1,120 @@
-let basket = JSON.parse(localStorage.getItem("basket")) || [];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Products</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="products.js"></script>
+</head>
+<body>
 
-function addToBasket(name, btn) {
-  const product = btn.closest(".product");
-  const price = parseFloat(product.querySelector(".price").value);
-  const colorSelect = product.querySelector(".color");
-  const color = colorSelect ? colorSelect.value : "N/A";
+<header class="header">
+  <a href="index.html">Home</a>
+  <a href="products.html">Shop</a>
+  <a href="checkout.html">Checkout</a>
+</header>
 
-  basket.push({ name, price, color });
-  localStorage.setItem("basket", JSON.stringify(basket));
-  alert("Added to basket");
-}
+<a href="checkout.html" class="basket">🧺</a>
 
-document.addEventListener("DOMContentLoaded", () => {
-  const list = document.getElementById("basket-items");
-  const totalEl = document.getElementById("total");
-  if (!list) return;
+<h1 class="page-title">Our Products</h1>
 
-  let total = 0;
-  basket.forEach(item => {
-    const div = document.createElement("div");
-    div.textContent = `${item.name} | ${item.color} | £${item.price.toFixed(2)}`;
-    list.appendChild(div);
-    total += item.price;
-  });
+<!-- ✅ CATEGORY DROPDOWN -->
+<select id="categoryFilter" onchange="filterCategory()">
+  <option value="all">All Products</option>
+  <option value="coasters">Coasters</option>
+  <option value="plants">Plants</option>
+</select>
 
-  totalEl.textContent = basket.length
-    ? `Total: £${total.toFixed(2)}`
-    : "Nothing to buy";
-});
+<div class="products">
+
+<!-- FLURRY -->
+<div class="product" data-category="coasters">
+  <img src="flurry coaster.jpg">
+  <h3>Flurry Coaster</h3>
+
+  <select class="color">
+    <option>red</option><option>blue</option><option>white</option>
+    <option>black</option><option>green</option><option>orange</option>
+    <option>yellow</option><option>purple</option><option>pink</option>
+    <option>brown</option><option>grey</option>
+  </select>
+
+  <select class="price">
+    <option value="7.2">£7.20 – set of 2</option>
+    <option value="14.4">£14.40 – set of 4</option>
+    <option value="21.6">£21.60 – set of 6</option>
+    <option value="28.8">£28.80 – set of 8</option>
+    <option value="36">£36.00 – set of 12</option>
+  </select>
+
+  <button onclick="addToBasket('Flurry Coaster', this)">Add to basket</button>
+</div>
+
+<!-- FLOWER PETAL -->
+<div class="product" data-category="coasters">
+  <img src="flower petal coaster.jpg">
+  <h3>Flower Petal Coaster</h3>
+
+  <select class="color">
+    <option>red</option><option>blue</option><option>white</option>
+    <option>black</option><option>green</option><option>orange</option>
+    <option>yellow</option><option>purple</option><option>pink</option>
+    <option>brown</option><option>grey</option>
+  </select>
+
+  <select class="price">
+    <option value="7.2">£7.20 – set of 2</option>
+    <option value="14.4">£14.40 – set of 4</option>
+    <option value="21.6">£21.60 – set of 6</option>
+    <option value="28.8">£28.80 – set of 8</option>
+    <option value="36">£36.00 – set of 12</option>
+  </select>
+
+  <button onclick="addToBasket('Flower Petal Coaster', this)">Add to basket</button>
+</div>
+
+<!-- HELM -->
+<div class="product" data-category="coasters">
+  <img src="helm coaster.jpg">
+  <h3>Helm Coaster</h3>
+
+  <select class="color">
+    <option>red</option><option>blue</option><option>white</option>
+    <option>black</option><option>green</option><option>orange</option>
+    <option>yellow</option><option>purple</option><option>pink</option>
+    <option>brown</option><option>grey</option>
+  </select>
+
+  <select class="price">
+    <option value="7.2">£7.20 – set of 2</option>
+    <option value="14.4">£14.40 – set of 4</option>
+    <option value="21.6">£21.60 – set of 6</option>
+    <option value="28.8">£28.80 – set of 8</option>
+    <option value="36">£36.00 – set of 12</option>
+  </select>
+
+  <button onclick="addToBasket('Helm Coaster', this)">Add to basket</button>
+</div>
+
+<!-- CACTUS -->
+<div class="product" data-category="plants">
+  <img src="cactus coaster.jpg">
+  <h3>Cactus</h3>
+
+  <select class="price">
+    <option value="8">£8 – 2 (no pot)</option>
+    <option value="23">£23 – 2 (with pot)</option>
+    <option value="16">£16 – 4 (no pot)</option>
+    <option value="31">£31 – 4 (with pot)</option>
+    <option value="24">£24 – 6 (no pot)</option>
+    <option value="39">£39 – 6 (with pot)</option>
+    <option value="32">£32 – 8 (no pot)</option>
+    <option value="47">£47 – 8 (with pot)</option>
+  </select>
+
+  <button onclick="addToBasket('Cactus', this)">Add to basket</button>
+</div>
+
+</div>
+</body>
+</html>
