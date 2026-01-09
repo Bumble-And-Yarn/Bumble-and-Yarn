@@ -1,6 +1,3 @@
-/* =======================
-   GLOBAL
-======================= */
 * {
   box-sizing: border-box;
   font-family: Arial, sans-serif;
@@ -12,9 +9,7 @@ body {
   text-align: center;
 }
 
-/* =======================
-   HEADER
-======================= */
+/* HEADER */
 header {
   padding: 30px;
 }
@@ -23,13 +18,7 @@ header {
   width: 120px;
 }
 
-/* =======================
-   NAV
-======================= */
-nav {
-  margin-top: 10px;
-}
-
+/* NAV */
 nav a {
   margin: 0 10px;
   text-decoration: none;
@@ -37,28 +26,23 @@ nav a {
   color: black;
 }
 
-/* =======================
-   CATEGORIES
-======================= */
+/* CATEGORY DROPDOWN */
 .categories {
   margin-top: 20px;
 }
 
 .categories select {
+  width: 260px;          /* FIXED */
   padding: 8px;
   border-radius: 12px;
 }
 
-/* =======================
-   WELCOME
-======================= */
+/* WELCOME */
 .welcome {
   margin-top: 20px;
 }
 
-/* =======================
-   PRODUCTS
-======================= */
+/* PRODUCTS */
 .products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -78,34 +62,27 @@ nav a {
   border-radius: 20px;
 }
 
-/* =======================
-   BUTTONS
-======================= */
-select,
-button {
-  width: 100%;
+/* BUTTONS */
+button, select {
   padding: 8px;
   margin-top: 8px;
   border-radius: 12px;
 }
 
-/* =======================
-   BASKET ICON (FIXED)
-======================= */
+/* BASKET ICON — SAME EVERYWHERE */
 .basket-icon {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  font-size: 28px;
+  font-size: 30px;
   text-decoration: none;
 }
 
-/* =======================
-   BASKET PAGE
-======================= */
+/* BASKET PAGE */
 .basket-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   margin: 15px;
 }
@@ -114,12 +91,11 @@ button {
   width: 70px;
   height: 70px;
   border-radius: 15px;
-  object-fit: cover;
 }
 
 .bin {
   background: none;
   border: none;
+  font-size: 18px;
   cursor: pointer;
-  font-size: 16px;
 }
