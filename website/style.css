@@ -1,22 +1,50 @@
-body {
+/* =======================
+   GLOBAL
+======================= */
+* {
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
-  margin: 0;
-  text-align: center;
 }
 
-.header {
-  padding: 20px;
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* =======================
+   HEADER
+======================= */
+header {
+  text-align: center;
+  padding: 30px;
 }
 
 .logo {
   width: 120px;
 }
 
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
+h1 {
+  margin: 10px 0;
 }
 
+/* =======================
+   NAVIGATION
+======================= */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+/* =======================
+   PRODUCTS GRID
+======================= */
 .products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -25,27 +53,74 @@ nav a {
 }
 
 .product {
-  border: 1px solid #ccc;
-  border-radius: 20px;
+  border: 1px solid #ddd;
   padding: 15px;
+  border-radius: 20px;
+  text-align: center;
 }
 
 .product img {
   width: 100%;
+  max-width: 200px;
   border-radius: 20px;
 }
 
-select, button {
+/* =======================
+   DROPDOWNS & BUTTONS
+======================= */
+select,
+button {
   width: 100%;
-  margin: 5px 0;
+  padding: 8px;
+  margin-top: 8px;
   border-radius: 12px;
-  padding: 6px;
 }
 
-.basket {
+/* =======================
+   BASKET ICON
+======================= */
+.basket-icon {
   position: fixed;
   bottom: 20px;
   right: 20px;
   font-size: 28px;
-  text-decoration: none;
+  cursor: pointer;
+}
+
+/* =======================
+   BASKET PAGE
+======================= */
+.basket-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.basket-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.basket-info {
+  flex: 1;
+  font-size: 14px;
+}
+
+.bin {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* =======================
+   TOTAL
+======================= */
+#total {
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 18px;
 }
