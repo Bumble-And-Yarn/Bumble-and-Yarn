@@ -4,14 +4,13 @@
   <meta charset="UTF-8">
   <title>Bumble & Yarn</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="products.js"></script>
 </head>
 <body>
 
-<header class="header">
+<header>
   <img src="logo.jpg" class="logo">
   <h1>Bumble & Yarn</h1>
-  <p class="tagline">Crochet items made with love</p>
+  <p>Crochet items made with love</p>
 
   <nav>
     <a href="index.html">Home</a>
@@ -20,11 +19,23 @@
   </nav>
 </header>
 
-<a href="checkout.html" class="basket">🧺</a>
+<!-- CATEGORY FILTER -->
+<section class="categories">
+  <select id="categoryFilter" onchange="filterCategory()">
+    <option value="all">All Categories</option>
+    <option value="coasters">Coasters</option>
+    <option value="cactus">Cactus</option>
+  </select>
+</section>
 
-<main class="home">
+<!-- WELCOME TEXT UNDER CATEGORIES -->
+<section class="welcome">
   <h2>Welcome to Bumble & Yarn</h2>
-</main>
+</section>
 
+<!-- BASKET ICON -->
+<a href="checkout.html" class="basket-icon">🛒</a>
+
+<script src="products.js"></script>
 </body>
 </html>
