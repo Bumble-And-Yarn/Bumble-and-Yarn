@@ -2,118 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Products</title>
+  <title>Bumble & Yarn</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="products.js"></script>
 </head>
 <body>
 
-<header class="header">
-  <a href="index.html">Home</a>
-  <a href="products.html">Shop</a>
-  <a href="checkout.html">Checkout</a>
+<header>
+  <img src="logo.jpg" class="logo">
+  <h1>Bumble & Yarn</h1>
+  <p>Crochet items made with love</p>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Shop</a>
+    <a href="checkout.html">Checkout</a>
+  </nav>
 </header>
 
-<a href="checkout.html" class="basket">🧺</a>
-
-<h1 class="page-title">Our Products</h1>
-
-<!-- ✅ ONLY ONE CATEGORY -->
-<select id="categoryFilter" onchange="filterCategory()">
-  <option value="all">All Products</option>
-  <option value="coasters">Coasters</option>
-</select>
-
-<div class="products">
-
-<!-- FLURRY -->
-<div class="product" data-category="coasters">
-  <img src="flurry coaster.jpg">
-  <h3>Flurry Coaster</h3>
-
-  <select class="color">
-    <option>red</option><option>blue</option><option>white</option>
-    <option>black</option><option>green</option><option>orange</option>
-    <option>yellow</option><option>purple</option><option>pink</option>
-    <option>brown</option><option>grey</option>
+<section class="categories">
+  <select>
+    <option>All Categories</option>
+    <option>Coasters</option>
+    <option>Cactus</option>
   </select>
+</section>
 
-  <select class="price">
-    <option value="7.2">£7.20 – set of 2</option>
-    <option value="14.4">£14.40 – set of 4</option>
-    <option value="21.6">£21.60 – set of 6</option>
-    <option value="28.8">£28.80 – set of 8</option>
-    <option value="36">£36.00 – set of 12</option>
-  </select>
+<section class="welcome">
+  <h2>Welcome to Bumble & Yarn</h2>
+</section>
 
-  <button onclick="addToBasket(this)">Add to basket</button>
-</div>
+<a href="checkout.html" class="basket-icon">🛒</a>
 
-<!-- FLOWER PETAL -->
-<div class="product" data-category="coasters">
-  <img src="flower petal coaster.jpg">
-  <h3>Flower Petal Coaster</h3>
-
-  <select class="color">
-    <option>red</option><option>blue</option><option>white</option>
-    <option>black</option><option>green</option><option>orange</option>
-    <option>yellow</option><option>purple</option><option>pink</option>
-    <option>brown</option><option>grey</option>
-  </select>
-
-  <select class="price">
-    <option value="7.2">£7.20 – set of 2</option>
-    <option value="14.4">£14.40 – set of 4</option>
-    <option value="21.6">£21.60 – set of 6</option>
-    <option value="28.8">£28.80 – set of 8</option>
-    <option value="36">£36.00 – set of 12</option>
-  </select>
-
-  <button onclick="addToBasket(this)">Add to basket</button>
-</div>
-
-<!-- HELM -->
-<div class="product" data-category="coasters">
-  <img src="helm coaster.jpg">
-  <h3>Helm Coaster</h3>
-
-  <select class="color">
-    <option>red</option><option>blue</option><option>white</option>
-    <option>black</option><option>green</option><option>orange</option>
-    <option>yellow</option><option>purple</option><option>pink</option>
-    <option>brown</option><option>grey</option>
-  </select>
-
-  <select class="price">
-    <option value="7.2">£7.20 – set of 2</option>
-    <option value="14.4">£14.40 – set of 4</option>
-    <option value="21.6">£21.60 – set of 6</option>
-    <option value="28.8">£28.80 – set of 8</option>
-    <option value="36">£36.00 – set of 12</option>
-  </select>
-
-  <button onclick="addToBasket(this)">Add to basket</button>
-</div>
-
-<!-- CACTUS (STILL COASTERS) -->
-<div class="product" data-category="coasters">
-  <img src="cactus coaster.jpg">
-  <h3>Cactus</h3>
-
-  <select class="price">
-    <option value="8">£8 – 2 (no pot)</option>
-    <option value="23">£23 – 2 (with pot)</option>
-    <option value="16">£16 – 4 (no pot)</option>
-    <option value="31">£31 – 4 (with pot)</option>
-    <option value="24">£24 – 6 (no pot)</option>
-    <option value="39">£39 – 6 (with pot)</option>
-    <option value="32">£32 – 8 (no pot)</option>
-    <option value="47">£47 – 8 (with pot)</option>
-  </select>
-
-  <button onclick="addToBasket(this)">Add to basket</button>
-</div>
-
-</div>
 </body>
 </html>
