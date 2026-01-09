@@ -18,10 +18,17 @@
 
 <h1 class="page-title">Our Products</h1>
 
+<!-- ✅ CATEGORY DROPDOWN -->
+<select id="categoryFilter" onchange="filterCategory()">
+  <option value="all">All Products</option>
+  <option value="coasters">Coasters</option>
+  <option value="plants">Plants</option>
+</select>
+
 <div class="products">
 
 <!-- FLURRY -->
-<div class="product">
+<div class="product" data-category="coasters">
   <img src="flurry coaster.jpg">
   <h3>Flurry Coaster</h3>
 
@@ -44,7 +51,7 @@
 </div>
 
 <!-- FLOWER PETAL -->
-<div class="product">
+<div class="product" data-category="coasters">
   <img src="flower petal coaster.jpg">
   <h3>Flower Petal Coaster</h3>
 
@@ -67,7 +74,7 @@
 </div>
 
 <!-- HELM -->
-<div class="product">
+<div class="product" data-category="coasters">
   <img src="helm coaster.jpg">
   <h3>Helm Coaster</h3>
 
@@ -90,7 +97,7 @@
 </div>
 
 <!-- CACTUS -->
-<div class="product">
+<div class="product" data-category="plants">
   <img src="cactus coaster.jpg">
   <h3>Cactus</h3>
 
