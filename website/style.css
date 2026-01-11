@@ -5,7 +5,6 @@
 
 body {
   margin: 0;
-  padding: 0;
   text-align: center;
 }
 
@@ -26,20 +25,14 @@ nav a {
   color: black;
 }
 
-/* CATEGORY DROPDOWN */
+/* CATEGORIES */
 .categories {
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
 .categories select {
-  width: 260px;          /* FIXED */
   padding: 8px;
   border-radius: 12px;
-}
-
-/* WELCOME */
-.welcome {
-  margin-top: 20px;
 }
 
 /* PRODUCTS */
@@ -62,40 +55,31 @@ nav a {
   border-radius: 20px;
 }
 
-/* BUTTONS */
-button, select {
-  padding: 8px;
-  margin-top: 8px;
-  border-radius: 12px;
+/* CHECKOUT */
+.checkout {
+  padding: 30px;
 }
 
-/* BASKET ICON — SAME EVERYWHERE */
+.checkout-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+  max-width: 400px;
+}
+
+/* BUTTONS */
+button {
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* BASKET ICON */
 .basket-icon {
   position: fixed;
   bottom: 20px;
   right: 20px;
   font-size: 30px;
   text-decoration: none;
-}
-
-/* BASKET PAGE */
-.basket-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin: 15px;
-}
-
-.basket-img {
-  width: 70px;
-  height: 70px;
-  border-radius: 15px;
-}
-
-.bin {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
 }
