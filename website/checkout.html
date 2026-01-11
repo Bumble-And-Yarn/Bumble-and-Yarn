@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Checkout | Bumble & Yarn</title>
+  <title>Checkout</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
+<header class="header">
   <img src="logo.jpg" class="logo">
-  <h1>Checkout</h1>
-
+  <h1>Bumble & Yarn</h1>
   <nav>
     <a href="index.html">Home</a>
     <a href="products.html">Shop</a>
@@ -18,40 +17,47 @@
   </nav>
 </header>
 
-<div class="checkout" id="checkout"></div>
+<h2>Your Basket</h2>
 
-<a href="payment.html" class="checkout-button">Proceed to Checkout</a>
+<div id="basket"></div>
+
+<h3 id="total" style="margin-top:20px;"></h3>
+
+<!-- Future Stripe page -->
+<a href="payment.html" class="checkout-btn">Checkout</a>
 
 <script>
-function renderCheckout() {
-  const container = document.getElementById("checkout");
+  const basketDiv = document.getElementById("basket");
+  const totalDiv = document.getElementById("total");
   const basket = JSON.parse(localStorage.getItem("basket")) || [];
-  container.innerHTML = "";
+
+  let total = 0;
 
   if (basket.length === 0) {
-    container.innerHTML = "<p>Your basket is empty.</p>";
-    return;
+    basketDiv.innerHTML = "<p>Your basket is empty.</p>";
+    totalDiv.textContent = "";
+  } else {
+    basket.forEach((item, index) => {
+      total += item.price;
+
+      const row = document.createElement("div");
+      row.className = "basket-item";
+      row.innerHTML = `
+        <span>${item.name}</span>
+        <span>£${item.price.toFixed(2)}</span>
+        <button onclick="removeItem(${index})">🗑️</button>
+      `;
+      basketDiv.appendChild(row);
+    });
+
+    totalDiv.textContent = `Total: £${total.toFixed(2)}`;
   }
 
-  basket.forEach((item, index) => {
-    const div = document.createElement("div");
-    div.className = "checkout-item";
-    div.innerHTML = `
-      <span>${item.name} — £${item.price.toFixed(2)}</span>
-      <button onclick="removeItem(${index})">🗑️</button>
-    `;
-    container.appendChild(div);
-  });
-}
-
-function removeItem(index) {
-  const basket = JSON.parse(localStorage.getItem("basket")) || [];
-  basket.splice(index, 1);
-  localStorage.setItem("basket", JSON.stringify(basket));
-  renderCheckout();
-}
-
-renderCheckout();
+  function removeItem(index) {
+    basket.splice(index, 1);
+    localStorage.setItem("basket", JSON.stringify(basket));
+    location.reload();
+  }
 </script>
 
 </body>
