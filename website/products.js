@@ -1,95 +1,65 @@
-// =======================
-// BASKET STORAGE
-// =======================
-let basket = JSON.parse(localStorage.getItem("basket")) || [];
+const products = [
+  {
+    id: 1,
+    name: "Flower Petal Coaster",
+    image: "flower petal coaster.jpg",
+    category: "coasters",
+    price: 7.20
+  },
+  {
+    id: 2,
+    name: "Flurry Coaster",
+    image: "flurry coaster.jpg",
+    category: "coasters",
+    price: 7.20
+  },
+  {
+    id: 3,
+    name: "Helm Coaster",
+    image: "helm coaster.jpg",
+    category: "coasters",
+    price: 7.20
+  },
+  {
+    id: 4,
+    name: "Cactus",
+    image: "cactus coaster.jpg",
+    category: "cactus",
+    price: 8.00
+  }
+];
 
-// =======================
-// ADD TO BASKET
-// =======================
-function addToBasket(button) {
-  const product = button.closest(".product");
+const container = document.getElementById("products");
+const filter = document.getElementById("categoryFilter");
 
-  const name = product.querySelector("h3").innerText;
-  const price = parseFloat(product.querySelector(".price").value);
-  const colorSelect = product.querySelector(".color");
-  const color = colorSelect ? colorSelect.value : "N/A";
-  const image = product.querySelector("img").getAttribute("src");
-
-  basket.push({
-    name,
-    price,
-    color,
-    image
-  });
-
+function addToBasket(product) {
+  const basket = JSON.parse(localStorage.getItem("basket")) || [];
+  basket.push(product);
   localStorage.setItem("basket", JSON.stringify(basket));
   alert("Added to basket");
 }
 
-// =======================
-// REMOVE FROM BASKET
-// =======================
-function removeFromBasket(index) {
-  basket.splice(index, 1);
-  localStorage.setItem("basket", JSON.stringify(basket));
-  renderBasket();
+function renderProducts(category = "all") {
+  container.innerHTML = "";
+
+  products
+    .filter(p => category === "all" || p.category === category)
+    .forEach(p => {
+      const div = document.createElement("div");
+      div.className = "product";
+      div.innerHTML = `
+        <img src="${p.image}">
+        <h3>${p.name}</h3>
+        <p>£${p.price.toFixed(2)}</p>
+        <button>Add to basket</button>
+      `;
+      div.querySelector("button").onclick = () => addToBasket(p);
+      container.appendChild(div);
+    });
 }
 
-// =======================
-// RENDER BASKET
-// =======================
-function renderBasket() {
-  const basketItems = document.getElementById("basket-items");
-  const totalEl = document.getElementById("total");
+filter.addEventListener("change", e => {
+  renderProducts(e.target.value);
+});
 
-  if (!basketItems || !totalEl) return;
-
-  basketItems.innerHTML = "";
-  let total = 0;
-
-  if (basket.length === 0) {
-    totalEl.textContent = "Nothing to buy";
-    return;
-  }
-
-  basket.forEach((item, index) => {
-    total += item.price;
-
-    const div = document.createElement("div");
-    div.className = "basket-item";
-
-    div.innerHTML = `
-      <img src="${item.image}" class="basket-img">
-      <div class="basket-info">
-        <strong>${item.name}</strong><br>
-        Color: ${item.color}<br>
-        £${item.price.toFixed(2)}
-      </div>
-      <button class="bin" onclick="removeFromBasket(${index})">🗑️</button>
-    `;
-
-    basketItems.appendChild(div);
-  });
-
-  totalEl.textContent = `Total: £${total.toFixed(2)}`;
-}
-
-// =======================
-// CATEGORY FILTER
-// =======================
-function filterCategory() {
-  const selected = document.getElementById("categoryFilter").value;
-
-  document.querySelectorAll(".product").forEach(product => {
-    if (selected === "all" || product.dataset.category === selected) {
-      product.style.display = "block";
-    } else {
-      product.style.display = "none";
-    }
-  });
-}
-
-// =======================
-// LOAD ON PAGE
-// =======================
-document.addEventListener("DOMContentLoaded", renderBasket);
+renderProducts();
