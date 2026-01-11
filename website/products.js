@@ -1,43 +1,70 @@
 const products = [
   {
-    id: 1,
     name: "Flower Petal Coaster",
     image: "flower petal coaster.jpg",
     category: "coasters",
-    options: [
-      { label: "Pink", price: 7.20 },
-      { label: "Cream", price: 7.20 }
+    prices: [
+      { label: "Set of 2", price: 7.20 },
+      { label: "Set of 4", price: 14.40 },
+      { label: "Set of 6", price: 21.60 },
+      { label: "Set of 8", price: 28.80 },
+      { label: "Set of 12", price: 36.00 }
+    ],
+    colors: [
+      "Red","Blue","White","Black","Green",
+      "Orange","Yellow","Purple","Pink",
+      "Brown","Grey"
     ]
   },
   {
-    id: 2,
     name: "Flurry Coaster",
     image: "flurry coaster.jpg",
     category: "coasters",
-    options: [
-      { label: "White", price: 7.20 },
-      { label: "Blue", price: 7.20 }
+    prices: [
+      { label: "Set of 2", price: 7.20 },
+      { label: "Set of 4", price: 14.40 },
+      { label: "Set of 6", price: 21.60 },
+      { label: "Set of 8", price: 28.80 },
+      { label: "Set of 12", price: 36.00 }
+    ],
+    colors: [
+      "Red","Blue","White","Black","Green",
+      "Orange","Yellow","Purple","Pink",
+      "Brown","Grey"
     ]
   },
   {
-    id: 3,
     name: "Helm Coaster",
     image: "helm coaster.jpg",
     category: "coasters",
-    options: [
-      { label: "Natural", price: 7.20 },
-      { label: "Grey", price: 7.20 }
+    prices: [
+      { label: "Set of 2", price: 7.20 },
+      { label: "Set of 4", price: 14.40 },
+      { label: "Set of 6", price: 21.60 },
+      { label: "Set of 8", price: 28.80 },
+      { label: "Set of 12", price: 36.00 }
+    ],
+    colors: [
+      "Red","Blue","White","Black","Green",
+      "Orange","Yellow","Purple","Pink",
+      "Brown","Grey"
     ]
   },
   {
-    id: 4,
     name: "Cactus Coaster",
     image: "cactus coaster.jpg",
     category: "coasters",
-    options: [
-      { label: "Green", price: 8.00 },
-      { label: "Dark Green", price: 8.00 }
-    ]
+    prices: [
+      { label: "Set of 2 (No pot)", price: 8.00 },
+      { label: "Set of 2 (With pot)", price: 23.00 },
+      { label: "Set of 4 (No pot)", price: 16.00 },
+      { label: "Set of 4 (With pot)", price: 31.00 },
+      { label: "Set of 6 (No pot)", price: 24.00 },
+      { label: "Set of 6 (With pot)", price: 39.00 },
+      { label: "Set of 8 (No pot)", price: 32.00 },
+      { label: "Set of 8 (With pot)", price: 47.00 }
+    ],
+    colors: [] // cactus has NO color options
   }
 ];
 
@@ -60,26 +87,37 @@ function renderProducts(category = "all") {
       const div = document.createElement("div");
       div.className = "product";
 
-      const optionsHtml = p.options
-        .map(
-          (o, i) =>
-            `<option value="${i}">${o.label} - £${o.price.toFixed(2)}</option>`
-        )
+      const priceOptions = p.prices
+        .map((o, i) => `<option value="${i}">${o.label} - £${o.price.toFixed(2)}</option>`)
         .join("");
+
+      const colorOptions = p.colors.length
+        ? p.colors.map(c => `<option value="${c}">${c}</option>`).join("")
+        : `<option value="Standard">Standard</option>`;
 
       div.innerHTML = `
         <img src="${p.image}">
         <h3>${p.name}</h3>
-        <select class="option-select">${optionsHtml}</select>
+
+        <select class="price-select">
+          ${priceOptions}
+        </select>
+
+        <select class="color-select">
+          ${colorOptions}
+        </select>
+
         <button>Add to basket</button>
       `;
 
       div.querySelector("button").onclick = () => {
-        const select = div.querySelector(".option-select");
-        const opt = p.options[select.value];
+        const priceIndex = div.querySelector(".price-select").value;
+        const color = div.querySelector(".color-select").value;
+        const priceObj = p.prices[priceIndex];
+
         addToBasket({
-          name: `${p.name} (${opt.label})`,
-          price: opt.price
+          name: `${p.name} (${priceObj.label}${p.colors.length ? `, ${color}` : ""})`,
+          price: priceObj.price
         });
       };
 
