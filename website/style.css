@@ -8,7 +8,6 @@ body {
   text-align: center;
 }
 
-/* HEADER */
 header {
   padding: 30px;
 }
@@ -17,7 +16,6 @@ header {
   width: 120px;
 }
 
-/* NAV */
 nav a {
   margin: 0 10px;
   text-decoration: none;
@@ -25,7 +23,6 @@ nav a {
   color: black;
 }
 
-/* CATEGORIES */
 .categories {
   margin: 20px 0;
 }
@@ -35,7 +32,6 @@ nav a {
   border-radius: 12px;
 }
 
-/* PRODUCTS */
 .products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -55,7 +51,6 @@ nav a {
   border-radius: 20px;
 }
 
-/* CHECKOUT */
 .checkout {
   padding: 30px;
 }
@@ -68,18 +63,26 @@ nav a {
   max-width: 400px;
 }
 
-/* BUTTONS */
 button {
   padding: 6px 10px;
   border-radius: 10px;
   cursor: pointer;
 }
 
-/* BASKET ICON */
 .basket-icon {
   position: fixed;
   bottom: 20px;
   right: 20px;
   font-size: 30px;
+  text-decoration: none;
+}
+
+.checkout-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  border-radius: 20px;
+  background: black;
+  color: white;
   text-decoration: none;
 }
