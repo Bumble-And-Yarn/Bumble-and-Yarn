@@ -2,42 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Payment | Bumble & Yarn</title>
+  <title>Payment</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <img src="logo.jpg" alt="Bumble & Yarn Logo" class="logo">
-    <h1>Bumble & Yarn</h1>
-    <p class="tagline">Crochet items made with love</p>
+<h2>Secure Checkout</h2>
+<button id="payBtn">Pay Now</button>
 
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="products.html">Shop</a>
-      <a href="checkout.html">Checkout</a>
-    </nav>
-  </header>
+<script>
+  document.getElementById("payBtn").addEventListener("click", async () => {
+    const basket = JSON.parse(localStorage.getItem("basket")) || [];
 
-  <main class="payment-page">
-    <h2>Payment</h2>
+    if (basket.length === 0) {
+      alert("Nothing to buy");
+      return;
+    }
 
-    <p>
-      This is where secure payment will be added.
-    </p>
+    const response = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        items: basket.map(item => ({
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity
+        }))
+      })
+    });
 
-    <p>
-      Payments will be handled safely using <strong>Stripe</strong>.
-    </p>
-
-    <p style="margin-top: 30px;">
-      🚧 Payment setup coming soon.
-    </p>
-
-    <a href="checkout.html" class="button" style="margin-top: 30px; display: inline-block;">
-      Back to Checkout
-    </a>
-  </main>
+    const data = await response.json();
+    window.location.href = data.url;
+  });
+</script>
 
 </body>
 </html>
