@@ -2,41 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Payment</title>
+  <title>Checkout</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Secure Checkout</h2>
-<button id="payBtn">Pay Now</button>
+  <h2>Secure Checkout</h2>
 
-<script>
-  document.getElementById("payBtn").addEventListener("click", async () => {
-    const basket = JSON.parse(localStorage.getItem("basket")) || [];
+  <button id="payBtn">Pay Now</button>
 
-    if (basket.length === 0) {
-      alert("Nothing to buy");
-      return;
+  <script>
+    // Make sure the button exists before attaching the listener
+    const payButton = document.getElementById("payBtn");
+
+    if (!payButton) {
+      console.error("Pay button not found");
+    } else {
+      payButton.addEventListener("click", async () => {
+        console.log("Pay button clicked");
+
+        const basket = JSON.parse(localStorage.getItem("basket")) || [];
+
+        if (basket.length === 0) {
+          alert("Nothing to buy");
+          return;
+        }
+
+        try {
+          const response = await fetch("/api/create-checkout-session", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              items: basket.map(item => ({
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity || 1
+              }))
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error("Failed to create checkout session");
+          }
+
+          const data = await response.json();
+
+          if (!data.url) {
+            throw new Error("No Stripe URL returned");
+          }
+
+          // Redirect to Stripe Checkout
+          window.location.href = data.url;
+
+        } catch (error) {
+          console.error("Stripe error:", error);
+          alert("Payment failed. Please try again.");
+        }
+      });
     }
-
-    const response = await fetch("/api/create-checkout-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        items: basket.map(item => ({
-          name: item.name,
-          price: item.price,
-          quantity: item.quantity
-        }))
-      })
-    });
-
-    const data = await response.json();
-    window.location.href = data.url;
-  });
-</script>
+  </script>
 
 </body>
 </html>
